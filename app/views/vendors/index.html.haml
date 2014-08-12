@@ -1,23 +1,36 @@
 %h1 Listing vendors
+%h1 Listing customers
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-6
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              = f.search_field :full_name_cont, class: 'form-control', placeholder: 'Serach...'
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
 
-%table.table.table-striped.table-bordered.table-hover.data-table
-  %tr
-    %th Name
-    %th email
-    %th phone
-    %th
-    %th
-    %th
+  .panel-body
+    .row
+      .col-xs-6
+        %table.table.table-striped.table-bordered.table-hover.data-table
+          %tr
+            %th Name
+            %th email
+            %th phone
+            %th
+            %th
+            %th
 
-  - @vendors.each do |vendor|
-    %tr
-      %td= vendor.full_name
-      %td= vendor.email
-      %td= vendor.phone
-      %td= link_to 'Show', vendor
-      %td= link_to 'Edit', edit_vendor_path(vendor)
-      %td= link_to 'Destroy', vendor, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+          - @vendors.each do |vendor|
+            %tr
+              %td= vendor.full_name
+              %td= vendor.email
+              %td= vendor.phone
+              %td= link_to 'Show', vendor
+              %td= link_to 'Edit', edit_vendor_path(vendor)
+              %td= link_to 'Destroy', vendor, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 = link_to 'New vendor', new_vendor_path

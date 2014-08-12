@@ -7,6 +7,12 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: {case_sensitive: false}
 
+  ransacker :full_name, formatter: proc { |v| v.mb_chars.downcase.to_s } do |parent|
+    Arel::Nodes::NamedFunction.new('LOWER',
+      [Arel::Nodes::NamedFunction.new('concat_ws',
+        [' ', parent.table[:first_name], parent.table[:last_name]])])
+  end
+  
   def full_name
     [first_name, last_name].compact.join(' ')
   end

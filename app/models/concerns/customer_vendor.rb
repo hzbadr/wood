@@ -3,7 +3,7 @@ module CustomerVendor
   
   included do
     before_validation :set_user_name, if: ->(u){u.username.blank?}
-
+    
     def password_required?
       false
     end

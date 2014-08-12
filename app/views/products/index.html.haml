@@ -1,21 +1,35 @@
 %h1 Listing products
 
-%table.table.table-striped.table-bordered.table-hover.data-table
-  %tr
-    %th Name
-    %th Description
-    %th
-    %th
-    %th
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-6
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              = f.search_field :name_cont, class: 'form-control', placeholder: 'Serach...'
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
 
-  - @products.each do |product|
-    %tr
-      %td= product.name
-      %td= product.description
-      %td= link_to 'Show', product
-      %td= link_to 'Edit', edit_product_path(product)
-      %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  .panel-body
+    .row
+      .col-xs-6
+        %table.table.table-striped.table-bordered.table-hover.data-table
+          %tr
+            %th Name
+            %th Description
+            %th
+            %th
+            %th
 
-%br
+          - @products.each do |product|
+            %tr
+              %td= product.name
+              %td= product.description
+              %td= link_to 'Show', product
+              %td= link_to 'Edit', edit_product_path(product)
+              %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
 
 = link_to 'New Product', new_product_path

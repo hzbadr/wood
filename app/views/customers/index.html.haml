@@ -1,23 +1,35 @@
 %h1 Listing customers
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-6
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              = f.search_field :full_name_cont, class: 'form-control', placeholder: 'Serach...'
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
 
-%table.table.table-striped.table-bordered.table-hover.data-table
-  %tr
-    %th Name
-    %th email
-    %th phone
-    %th
-    %th
-    %th
+  .panel-body
+    .row
+      .col-xs-6 
+        %table.table.table-striped.table-bordered.table-hover.data-table
+          %tr
+            %th Name
+            %th email
+            %th phone
+            %th
+            %th
+            %th
 
-  - @customers.each do |customer|
-    %tr
-      %td= customer.full_name
-      %td= customer.email
-      %td= customer.phone
-      %td= link_to 'Show', customer
-      %td= link_to 'Edit', edit_customer_path(customer)
-      %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+          - @customers.each do |customer|
+            %tr
+              %td= customer.full_name
+              %td= customer.email
+              %td= customer.phone
+              %td= link_to 'Show', customer
+              %td= link_to 'Edit', edit_customer_path(customer)
+              %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 = link_to 'New Customer', new_customer_path
