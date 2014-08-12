@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :vendors
 
   resources :stocks
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
 
   root to: "home#index"
   
+  get "/awesome/:font_name.:ext" => redirect("/assets/%{font_name}.%{ext}")
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

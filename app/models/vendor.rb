@@ -1,2 +1,2 @@
-class Vendor < ActiveRecord::Base
+class Vendor < User
 end

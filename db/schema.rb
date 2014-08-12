@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812003532) do
+ActiveRecord::Schema.define(version: 20140812100301) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -24,5 +24,61 @@ ActiveRecord::Schema.define(version: 20140812003532) do
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stocks", force: true do |t|
+    t.integer  "variant_id"
+    t.decimal  "quantity",   precision: 10, scale: 0
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stocks", ["variant_id"], name: "index_stocks_on_variant_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "username",               default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "variants", force: true do |t|
+    t.decimal  "weight",     precision: 10, scale: 0
+    t.decimal  "width",      precision: 10, scale: 0
+    t.decimal  "height",     precision: 10, scale: 0
+    t.decimal  "depth",      precision: 10, scale: 0
+    t.integer  "product_id"
+    t.decimal  "cost_price", precision: 10, scale: 0
+    t.decimal  "price",      precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "variants", ["product_id"], name: "index_variants_on_product_id", using: :btree
+
+  create_table "vendors", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -4,22 +4,23 @@
   = f.label :name_cont
   = f.search_field :name_cont
 
-%table
-  %tr
-    %th Name
-    %th Parent
-    %th
-    %th
-    %th
-
-  - @categories.each do |category|
+.col-xs-6
+  %table.table.table-striped.table-bordered.table-hover
     %tr
-      %td= category.name
-      %td= category.parent.try(:name)
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Parent
+      %th
 
-%br
+    - @categories.each do |category|
+      %tr
+        %td= category.name
+        %td= category.parent.try(:name)
+        %td
+          %span= link_to 'Show', category
+          \|
+          %span= link_to 'Edit', edit_category_path(category)
+          \|
+          %span= link_to 'Destroy', category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
 
 = link_to 'New Category', new_category_path
