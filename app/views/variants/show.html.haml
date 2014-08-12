@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Weight:
+  = @variant.weight
+%p
+  %b Width:
+  = @variant.width
+%p
+  %b Height:
+  = @variant.height
+%p
+  %b Depth:
+  = @variant.depth
+%p
+  %b Product:
+  = @variant.product
+%p
+  %b Cost price:
+  = @variant.cost_price
+%p
+  %b Price:
+  = @variant.price
+
+= link_to 'Edit', edit_variant_path(@variant)
+\|
+= link_to 'Back', variants_path

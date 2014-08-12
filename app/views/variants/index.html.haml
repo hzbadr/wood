@@ -1,0 +1,31 @@
+%h1 Listing variants
+
+%table
+  %tr
+    %th Weight
+    %th Width
+    %th Height
+    %th Depth
+    %th Product
+    %th Cost price
+    %th Price
+    %th
+    %th
+    %th
+
+  - @variants.each do |variant|
+    %tr
+      %td= variant.weight
+      %td= variant.width
+      %td= variant.height
+      %td= variant.depth
+      %td= variant.product
+      %td= variant.cost_price
+      %td= variant.price
+      %td= link_to 'Show', variant
+      %td= link_to 'Edit', edit_variant_path(variant)
+      %td= link_to 'Destroy', variant, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Variant', new_variant_path
