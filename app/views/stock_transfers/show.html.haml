@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Source:
+  = @stock_transfer.source.full_name
+%p
+  %b Variant:
+  = @stock_transfer.variant.name
+%p
+  %b Quantity:
+  = @stock_transfer.quantity
+%p
+  %b Date:
+  = @stock_transfer.date
+
+= link_to 'Edit', edit_stock_transfer_path(@stock_transfer)
+\|
+= link_to 'Back', stock_transfers_path

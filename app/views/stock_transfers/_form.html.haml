@@ -1,0 +1,22 @@
+= form_for @stock_transfer do |f|
+  - if @stock_transfer.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@stock_transfer.errors.count, "error")} prohibited this stock_transfer from being saved:"
+      %ul
+        - @stock_transfer.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :source_id
+    = f.select :source_id, options_from_collection_for_select(Supplier.all, :id, :full_name), {include_blank: true}, {class: 'form-control'} 
+  .form-group
+    = f.label :variant_id
+    = f.select :variant_id, options_from_collection_for_select(Variant.all, :id, :name), {include_blank: true}, {class: 'form-control'}
+  .form-group
+    = f.label :quantity
+    = f.number_field :quantity, class: 'form-control'
+  .form-group
+    = f.label :date
+    = f.date_field :date, class: 'form-control'
+  .actions.form-group
+    = f.submit 'Save'

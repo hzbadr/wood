@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812134956) do
+ActiveRecord::Schema.define(version: 20140812180551) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20140812134956) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "stock_transfers", force: true do |t|
+    t.integer  "source_id"
+    t.integer  "variant_id"
+    t.integer  "quantity"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stock_transfers", ["source_id"], name: "index_stock_transfers_on_source_id", using: :btree
+  add_index "stock_transfers", ["variant_id"], name: "index_stock_transfers_on_variant_id", using: :btree
 
   create_table "stocks", force: true do |t|
     t.integer  "variant_id"
@@ -80,7 +92,7 @@ ActiveRecord::Schema.define(version: 20140812134956) do
 
   add_index "variants", ["product_id"], name: "index_variants_on_product_id", using: :btree
 
-  create_table "suppliers", force: true do |t|
+  create_table "vendors", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,10 @@
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4= Edit #{@stock_transfer.variant.full_name} - #{@stock_transfer.variant.name}
+    .panel-body
+      = render 'form'
+
+= link_to 'Show', @stock_transfer
+\|
+= link_to 'Back', stock_transfers_path

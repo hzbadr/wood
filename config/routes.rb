@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stock_transfers
+
   devise_for :users
   
   resources :customers
