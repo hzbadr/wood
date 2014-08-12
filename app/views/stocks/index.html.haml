@@ -1,23 +1,36 @@
 %h1 Listing stocks
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-6
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              = f.search_field :variant_product_name_cont, class: 'form-control', placeholder: 'Serach...'
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
 
-%table.table.table-striped.table-bordered.table-hover.data-table
-  %tr
-    %th Variant
-    %th Quantity
-    %th Date
-    %th
-    %th
-    %th
+  .panel-body
+    .row
+      .col-xs-6
+        %table.table.table-striped.table-bordered.table-hover.data-table
+          %tr
+            %th Variant
+            %th Quantity
+            %th Date
+            %th
+            %th
+            %th
 
-  - @stocks.each do |stock|
-    %tr
-      %td= stock.variant
-      %td= stock.quantity
-      %td= stock.date
-      %td= link_to 'Show', stock
-      %td= link_to 'Edit', edit_stock_path(stock)
-      %td= link_to 'Destroy', stock, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          - @stocks.each do |stock|
+            %tr
+              %td= stock.variant.name
+              %td= stock.quantity
+              %td= stock.date
+              %td= link_to 'Show', stock
+              %td= link_to 'Edit', edit_stock_path(stock)
+              %td= link_to 'Destroy', stock, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
 = link_to 'New Stock', new_stock_path

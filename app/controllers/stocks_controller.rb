@@ -4,7 +4,8 @@ class StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.all
+    @search = Stock.search(params[:q])
+    @stocks = @search.result
   end
 
   # GET /stocks/1

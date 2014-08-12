@@ -7,13 +7,13 @@
           %li= msg
 
   .form-group
-    = f.label :variant
-    = f.text_field :variant, class: 'form-control'
+    = f.label :variant_id
+    = f.select :variant_id, options_from_collection_for_select(Variant.all, :id, :name, @stock.variant_id), {include_blank: true},class: 'form-control'
   .form-group
     = f.label :quantity
     = f.text_field :quantity, class: 'form-control'
   .form-group
     = f.label :date
     = f.date_select :date, class: 'form-control'
-  .actions
-    = f.submit 'Save'
+  .actions.form-group
+    = f.submit 'Save', class: 'btn btn-primary'
