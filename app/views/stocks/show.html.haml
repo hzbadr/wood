@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Variant:
+  = @stock.variant
+%p
+  %b Quantity:
+  = @stock.quantity
+%p
+  %b Date:
+  = @stock.date
+
+= link_to 'Edit', edit_stock_path(@stock)
+\|
+= link_to 'Back', stocks_path

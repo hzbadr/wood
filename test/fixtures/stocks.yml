@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  variant_id: 
+  quantity: 9.99
+  date: 2014-08-12
+
+two:
+  variant_id: 
+  quantity: 9.99
+  date: 2014-08-12
