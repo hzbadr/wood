@@ -215,13 +215,19 @@
         %li
           %a{:href => "#"}
             %i.fa.fa-sitemap.fa-fw
-            Multi-Level Dropdown
+            Settings
             %span.fa.arrow
           %ul.nav.nav-second-level
             %li
-              %a{:href => "#"} Second Level Item
+              %a{:href => "#{categories_path}"} Categories
             %li
-              %a{:href => "#"} Second Level Item
+              %a{:href => "#{products_path}"} Products
+            %li
+              %a{:href => "#{variants_path}"} Variants
+            %li
+              %a{:href => "#{customers_path}"} Customers
+            %li
+              %a{:href => "#{vendors_path}"} Vendors
             %li
               %a{:href => "#"}
                 Third Level

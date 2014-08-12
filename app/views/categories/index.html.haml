@@ -4,8 +4,8 @@
   .panel-heading
     .row
       .col-xs-6
-        = search_form_for(@search, class: 'form') do |f|
-          .form-greoup
+        = search_form_for(@search, class: 'form search') do |f|
+          .form-group
             = f.label :name_cont
             = f.search_field :name_cont, class: 'form-control'
   .panel-body

@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
          :authentication_keys => [:username]
 
   validates :username, uniqueness: {case_sensitive: false}
+
+  def full_name
+    [first_name, last_name].compact.join(' ')
+  end
 end

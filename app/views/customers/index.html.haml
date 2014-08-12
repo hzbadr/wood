@@ -2,12 +2,18 @@
 
 %table.table.table-striped.table-bordered.table-hover.data-table
   %tr
+    %th Name
+    %th email
+    %th phone
     %th
     %th
     %th
 
   - @customers.each do |customer|
     %tr
+      %td= customer.full_name
+      %td= customer.email
+      %td= customer.phone
       %td= link_to 'Show', customer
       %td= link_to 'Edit', edit_customer_path(customer)
       %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
