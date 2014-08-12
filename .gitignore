@@ -8,8 +8,8 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
-/log/*.log
-/log/*.*
+log/*.log
+tmp/**/*
 ## Specific to RubyMotion:
 .dat*
 .repl_history
