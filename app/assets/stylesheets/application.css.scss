@@ -16,3 +16,38 @@
  *= require sb-admin-2
  *= require font-awesome.min
  */
+
+
+input[type="text"], .select2-search input, .select2-container-multi .select2-choices, 
+input[type="password"], input[type="email"], input[type="date"], input[type="datetime"], 
+input[type="time"], input[type="url"], input[type="number"], input[type="tel"], textarea, select.form-control, fieldset {
+-webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  padding: 7px 10px;
+  border: 1px solid #cee1f4;
+  color: #5498da;
+  font-size: 90%;
+}
+fieldset label, label {
+  color: #809cb1;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline;
+  margin-bottom: 5px;
+}
+.panel-primary>.panel-heading {
+  color: #fff;
+  background-color: #5498da;
+  border-color: #5498da;
+}
+btn-primary {
+  color: #fff;
+  background-color: #5498da;
+  border-color: #5498da;
+}
+#page-wrapper{
+  padding-top: 30px;
+}

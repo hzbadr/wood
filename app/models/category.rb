@@ -3,5 +3,7 @@ class Category < ActiveRecord::Base
   has_many :children, class_name: 'Category'
 
   acts_as_nested_set
+
+  validates :name, presence: true
   
 end
