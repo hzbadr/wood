@@ -12,11 +12,13 @@
  *
  *= require bootstrap.min
  *= require plugins/metisMenu/metisMenu.min
- *= require plugins/dataTables.bootstrap.css
  *= require sb-admin-2
  *= require font-awesome.min
  */
 
+body{
+  font-family: FontAwesome;
+}
 
 input[type="text"], .select2-search input, .select2-container-multi .select2-choices, 
 input[type="password"], input[type="email"], input[type="date"], input[type="datetime"], 
@@ -49,7 +51,7 @@ btn-primary {
   border-color: #5498da;
 }
 #page-wrapper{
-  padding-top: 30px;
+  padding-top: 10px;
 }
 .alert-notice {
   color: #31708f;
