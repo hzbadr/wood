@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 group :development do
   gem 'rails_layout'
   gem 'erb2haml'
+  gem 'pry-rails'
 end
 
 gem 'haml-rails'

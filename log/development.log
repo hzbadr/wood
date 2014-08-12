@@ -9848,3 +9848,670 @@ Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 16:59:51 
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 16:59:51 +0300
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-12 17:01:05 +0300
+Processing by ProductsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.haml within layouts/application (7.8ms)
+  Rendered layouts/_navigation_links.html.haml (0.1ms)
+  Rendered layouts/_navigation.html.haml (1.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 27ms (Views: 15.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2014-08-12 17:01:08 +0300
+Processing by ProductsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered products/_form.html.haml (3.3ms)
+  Rendered products/new.html.haml within layouts/application (5.2ms)
+  Rendered layouts/_navigation_links.html.haml (0.2ms)
+  Rendered layouts/_navigation.html.haml (3.5ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/buttons.html" for 127.0.0.1 at 2014-08-12 17:01:13 +0300
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"buttons"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  `products`.* FROM `products`  WHERE `products`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=buttons):
+  app/controllers/products_controller.rb:67:in `set_product'
+
+
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.7ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.1ms)
+
+
+Started GET "/products/buttons.html" for 127.0.0.1 at 2014-08-12 17:01:13 +0300
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"buttons"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  `products`.* FROM `products`  WHERE `products`.`id` = 0 LIMIT 1
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=buttons):
+  app/controllers/products_controller.rb:67:in `set_product'
+
+
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+Processing by ProductsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT `products`.* FROM `products`
+  Rendered products/index.html.haml within layouts/application (4.0ms)
+  Rendered layouts/_navigation_links.html.haml (0.0ms)
+  Rendered layouts/_navigation.html.haml (0.8ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:21 +0300
+
+
+Started GET "/variants" for 127.0.0.1 at 2014-08-12 17:01:25 +0300
+Processing by VariantsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mVariant Load (0.3ms)[0m  SELECT `variants`.* FROM `variants`
+  [1m[36mProduct Load (1.1ms)[0m  [1mSELECT  `products`.* FROM `products`  WHERE `products`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `products`.* FROM `products`  WHERE `products`.`id` = 1 LIMIT 1  [["id", 1]]
+  Rendered variants/index.html.haml within layouts/application (29.4ms)
+  Rendered layouts/_navigation_links.html.haml (0.0ms)
+  Rendered layouts/_navigation.html.haml (1.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 43ms (Views: 36.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/customers" for 127.0.0.1 at 2014-08-12 17:01:32 +0300
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mCustomer Load (0.3ms)[0m  SELECT `users`.* FROM `users`  WHERE `users`.`type` IN ('Customer')
+  Rendered customers/index.html.haml within layouts/application (18.0ms)
+  Rendered layouts/_navigation_links.html.haml (0.1ms)
+  Rendered layouts/_navigation.html.haml (1.8ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 37ms (Views: 32.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/vendors" for 127.0.0.1 at 2014-08-12 17:01:36 +0300
+Processing by VendorsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mVendor Load (0.4ms)[0m  SELECT `users`.* FROM `users`  WHERE `users`.`type` IN ('Vendor')
+  Rendered vendors/index.html.haml within layouts/application (5.7ms)
+  Rendered layouts/_navigation_links.html.haml (0.3ms)
+  Rendered layouts/_navigation.html.haml (2.7ms)
+  Rendered layouts/_messages.html.haml (0.6ms)
+Completed 200 OK in 27ms (Views: 21.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/vendors/new" for 127.0.0.1 at 2014-08-12 17:01:38 +0300
+Processing by VendorsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered vendors/_form.html.haml (25.2ms)
+  Rendered vendors/new.html.haml within layouts/application (28.3ms)
+  Rendered layouts/_navigation_links.html.haml (0.1ms)
+  Rendered layouts/_navigation.html.haml (1.6ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'a@b.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`username` = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered vendors/_form.html.haml (7.4ms)
+  Rendered vendors/new.html.haml within layouts/application (10.2ms)
+  Rendered layouts/_navigation_links.html.haml (0.0ms)
+  Rendered layouts/_navigation.html.haml (0.9ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 30ms (Views: 18.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 17:01:51 +0300
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'a@b.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`username` = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered vendors/_form.html.haml (8.1ms)
+  Rendered vendors/new.html.haml within layouts/application (8.8ms)
+  Rendered layouts/_navigation_links.html.haml (0.0ms)
+  Rendered layouts/_navigation.html.haml (0.7ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 31ms (Views: 15.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:35 +0300
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'a@b.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`username` = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered vendors/_form.html.haml (5.1ms)
+  Rendered vendors/new.html.haml within layouts/application (7.2ms)
+  Rendered layouts/_navigation_links.html.haml (0.0ms)
+  Rendered layouts/_navigation.html.haml (0.7ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 20ms (Views: 14.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 17:07:42 +0300
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:08:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'a@b.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`username` = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered vendors/_form.html.haml (13.2ms)
+  Rendered vendors/new.html.haml within layouts/application (16.5ms)
+  Rendered layouts/_navigation_links.html.haml (0.5ms)
+  Rendered layouts/_navigation.html.haml (18.4ms)
+  Rendered layouts/_messages.html.haml (0.6ms)
+Completed 200 OK in 113ms (Views: 71.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:06 +0300
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'a@b.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`username` = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered vendors/_form.html.haml (7.7ms)
+  Rendered vendors/new.html.haml within layouts/application (8.5ms)
+  Rendered layouts/_navigation_links.html.haml (0.0ms)
+  Rendered layouts/_navigation.html.haml (0.6ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 36ms (Views: 14.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 17:08:46 +0300
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:09:52 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 41ms
+
+NoMethodError (undefined method `before_validate' for #<Class:0x00000005cedc18>):
+  app/models/concerns/customer_vendor.rb:5:in `block in <module:CustomerVendor>'
+  app/models/vendor.rb:2:in `include'
+  app/models/vendor.rb:2:in `<class:Vendor>'
+  app/models/vendor.rb:1:in `<top (required)>'
+  app/controllers/vendors_controller.rb:27:in `create'
+
+
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:10:16 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 19ms
+
+NoMethodError (undefined method `user_name' for #<Vendor:0x00000006026e98>):
+  app/models/concerns/customer_vendor.rb:5:in `block (2 levels) in <module:CustomerVendor>'
+  app/controllers/vendors_controller.rb:30:in `block in create'
+  app/controllers/vendors_controller.rb:29:in `create'
+
+
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:10:49 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'a@b.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`username` = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered vendors/_form.html.haml (12.0ms)
+  Rendered vendors/new.html.haml within layouts/application (12.9ms)
+  Rendered layouts/_navigation_links.html.haml (0.0ms)
+  Rendered layouts/_navigation.html.haml (0.7ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+Completed 200 OK in 41ms (Views: 19.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 17:10:50 +0300
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 17:11:19 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 16ms
+
+NoMethodError (undefined method `pry' for #<Binding:0x00000006186ce8>):
+  app/models/concerns/customer_vendor.rb:12:in `set_user_name'
+  app/controllers/vendors_controller.rb:30:in `block in create'
+  app/controllers/vendors_controller.rb:29:in `create'
+
+
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/hassan/.rvm/gems/ruby-2.1.2@wood/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 19:01:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'a@b.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`username` = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered vendors/_form.html.haml (14.7ms)
+  Rendered vendors/new.html.haml within layouts/application (18.7ms)
+  Rendered layouts/_navigation_links.html.haml (0.5ms)
+  Rendered layouts/_navigation.html.haml (46.8ms)
+  Rendered layouts/_messages.html.haml (0.7ms)
+Completed 200 OK in 22426ms (Views: 110.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 19:02:19 +0300
+
+
+Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.1.0" for 127.0.0.1 at 2014-08-12 19:02:20 +0300
+
+
+Started POST "/vendors" for 127.0.0.1 at 2014-08-12 19:02:33 +0300
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q+gg29goQ9pBlu9DisVrRJ3/XNc3uJ6hafqjN5ozv3U=", "vendor"=>{"first_name"=>"A", "last_name"=>"B", "email"=>"a@b.com", "phone"=>"796", "address"=>"jhgk jgkjhdfhb"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'a@b.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`username` = 'A B-a@b.com-brqgp' LIMIT 1
+  [1m[36mSQL (22.7ms)[0m  [1mINSERT INTO `users` (`address`, `created_at`, `email`, `first_name`, `last_name`, `phone`, `type`, `updated_at`, `username`) VALUES ('jhgk jgkjhdfhb', '2014-08-12 16:03:02', 'a@b.com', 'A', 'B', '796', 'Vendor', '2014-08-12 16:03:02', 'A B-a@b.com-brqgp')[0m
+  [1m[35mUser Exists (75.8ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`username` = 'A B-a@b.com-brqgp' AND `users`.`id` != 3) LIMIT 1
+  [1m[36m (38.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/vendors/3
+Completed 302 Found in 32826ms (ActiveRecord: 139.3ms)
+
+
+Started GET "/vendors/3" for 127.0.0.1 at 2014-08-12 19:03:05 +0300
+Processing by VendorsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`type` IN ('Vendor') AND `users`.`id` = 3 LIMIT 1[0m
+  Rendered vendors/show.html.haml within layouts/application (1.2ms)
+  Rendered layouts/_navigation_links.html.haml (0.0ms)
+  Rendered layouts/_navigation.html.haml (1.0ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/plugins/dataTables.bootstrap.css?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/sb-admin-2.css?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.css?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/font-awesome.min.css?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/plugins/metisMenu/metisMenu.min.js?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/sb-admin-2.js?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-12 19:03:06 +0300
