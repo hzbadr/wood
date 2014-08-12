@@ -20,7 +20,7 @@
 
 input[type="text"], .select2-search input, .select2-container-multi .select2-choices, 
 input[type="password"], input[type="email"], input[type="date"], input[type="datetime"], 
-input[type="time"], input[type="url"], input[type="number"], input[type="tel"], textarea, select.form-control, fieldset {
+input[type="time"], input[type="url"], input[type="number"], input[type="tel"], textarea, select.form-control, textarea.form-control, fieldset {
 -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;

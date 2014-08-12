@@ -1,4 +1,4 @@
-module CustomerVendor
+module CustomerSupplier
   extend ActiveSupport::Concern
   
   included do

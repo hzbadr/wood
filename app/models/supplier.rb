@@ -1,4 +1,3 @@
-class Customer < User
+class Supplier < User
   include CustomerSupplier
-  
 end

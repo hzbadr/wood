@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140812134956) do
 
   add_index "variants", ["product_id"], name: "index_variants_on_product_id", using: :btree
 
-  create_table "vendors", force: true do |t|
+  create_table "suppliers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

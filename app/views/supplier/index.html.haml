@@ -1,5 +1,4 @@
-%h1 Listing vendors
-%h1 Listing customers
+%h1 Listing suppliers
 .panel.panel-primary
   .panel-heading
     .row
@@ -24,13 +23,13 @@
             %th
             %th
 
-          - @vendors.each do |vendor|
+          - @suppliers.each do |supplier|
             %tr
-              %td= vendor.full_name
-              %td= vendor.email
-              %td= vendor.phone
-              %td= link_to 'Show', vendor
-              %td= link_to 'Edit', edit_vendor_path(vendor)
-              %td= link_to 'Destroy', vendor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= supplier.full_name
+              %td= supplier.email
+              %td= supplier.phone
+              %td= link_to 'Show', supplier
+              %td= link_to 'Edit', edit_supplier_path(supplier)
+              %td= link_to 'Destroy', supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New vendor', new_vendor_path
+= link_to 'New supplier', new_supplier_path
