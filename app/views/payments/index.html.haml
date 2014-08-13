@@ -1,16 +1,21 @@
 %h1 Listing payments
-
 .panel.panel-primary
   .panel-heading
     .row
-      .col-xs-6
+      .col-xs-11
         = search_form_for(@search, class: 'form search') do |f|
           .sidebar-search
             .input-group.custom-search-form
-              = f.search_field :name_cont, class: 'form-control', placeholder: 'Serach...'
-              %span.input-group-btn
-                %button.btn.btn-default{:type => "submit"}
-                  %i.fa.fa-search
+              .row
+                .col-xs-6
+                  .form-group
+                    = f.label :customer_id_eq, 'Customer'
+                    = f.select :customer_id_eq, options_from_collection_for_select(Customer.all, :id, :full_name, params[:q].fetch(:customer_id_eq, nil)), {include_blank: true}, class: 'form-control'
+                .col-xs-2
+                  .form-group
+                    %button.btn.btn-default{type: "submit", style: "margin-top:19px"}
+                      %i.fa.fa-search
+                        Search
 
   .panel-body
     .row
