@@ -1,0 +1,10 @@
+%fieldset
+  .form-group
+    = f.label :variant_id, 'Product'
+    = f.select :variant_id, options_from_collection_for_select(Variant.all, :id, :name, f.object.variant_id), {include_blank: true}, {class: 'form-control'}
+  .form-group
+    = f.label :quantity
+    = f.text_field :quantity, class: 'form-control'
+  .form-group
+    = f.hidden_field :_destroy
+    = link_to "Remove", '#', class: "remove_fields"

@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %p
   %b Number:
   = @order.number
@@ -18,6 +16,14 @@
 %p
   %b Created by:
   = @order.created_by.full_name
+
+%h5 Line Items
+- @order.line_items.each do |l|
+  %p
+    %b Product:
+    = l.variant.name
+
+
 
 = link_to 'Edit', edit_order_path(@order)
 \|

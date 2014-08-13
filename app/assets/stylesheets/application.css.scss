@@ -14,6 +14,7 @@
  *= require plugins/metisMenu/metisMenu.min
  *= require sb-admin-2
  *= require font-awesome.min
+ *= require line_items
  */
 
 body{
@@ -60,4 +61,8 @@ btn-primary {
 }
 form.search label{
   color: #fff;
+}
+.add_fields{
+  float: right;
+  margin-top: 10px;
 }
