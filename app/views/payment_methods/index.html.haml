@@ -1,0 +1,35 @@
+%h1 Listing payment_methods
+
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-6
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              = f.search_field :name_cont, class: 'form-control', placeholder: 'Serach...'
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
+
+  .panel-body
+    .row
+      .col-xs-12
+        %table.table.table-striped.table-bordered.table-hover
+          %tr
+            %th Name
+            %th Description
+            %th
+            %th
+            %th
+
+          - @payment_methods.each do |payment_method|
+            %tr
+              %td= payment_method.name
+              %td= payment_method.description
+              %td= link_to 'Show', payment_method
+              %td= link_to 'Edit', edit_payment_method_path(payment_method)
+              %td= link_to 'Destroy', payment_method, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+= link_to 'New Payment method', new_payment_method_path

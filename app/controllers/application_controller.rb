@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :set_params_q
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
@@ -14,4 +16,8 @@ class ApplicationController < ActionController::Base
   
   before_action :authenticate_user!
   
+
+  def set_params_q
+    params[:q] ||= {}
+  end  
 end

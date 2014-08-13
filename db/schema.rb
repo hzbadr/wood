@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812180551) do
+ActiveRecord::Schema.define(version: 20140813174453) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -24,6 +24,54 @@ ActiveRecord::Schema.define(version: 20140812180551) do
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+
+  create_table "line_items", force: true do |t|
+    t.integer  "variant_id"
+    t.decimal  "quantity",   precision: 10, scale: 0
+    t.decimal  "price",      precision: 10, scale: 0
+    t.decimal  "cost_price", precision: 10, scale: 0
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
+  add_index "line_items", ["variant_id"], name: "index_line_items_on_variant_id", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.integer  "number"
+    t.decimal  "total",         precision: 10, scale: 0
+    t.string   "state"
+    t.integer  "customer_id"
+    t.datetime "completed_at"
+    t.integer  "created_by_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["created_by_id"], name: "index_orders_on_created_by_id", using: :btree
+  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
+
+  create_table "payment_methods", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.decimal  "amount",            precision: 10, scale: 0
+    t.integer  "order_id"
+    t.integer  "customer_id"
+    t.string   "state"
+    t.integer  "payment_method_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["customer_id"], name: "index_payments_on_customer_id", using: :btree
+  add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
+  add_index "payments", ["payment_method_id"], name: "index_payments_on_payment_method_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"

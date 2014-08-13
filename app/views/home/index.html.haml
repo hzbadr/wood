@@ -1,4 +1,31 @@
 
 .row
-  .col-xs-3
-    = link_to 'Categories', categories_path
+  .col-xs-2
+    = link_to categories_path do
+      %center
+        %h5 Categories
+  .col-xs-2
+    = link_to customers_path do
+      %center
+        %h5 Customers
+  .col-xs-2
+    = link_to suppliers_path do
+      %center
+        %h5 Suppliers
+  .col-xs-2
+    = link_to products_path do
+      %center
+        %h5 Products
+  .col-xs-2
+    = link_to variants_path do
+      %center
+        %h5 Variants
+  .col-xs-2
+    = link_to stocks_path do
+      %center
+        %h5 Stocks
+  .col-xs-2
+    = link_to stock_transfers_path do
+      %center
+        %h5 Stock Trasnfers
+
