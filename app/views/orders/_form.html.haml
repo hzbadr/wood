@@ -5,16 +5,16 @@
       %ul
         - @order.errors.full_messages.each do |msg|
           %li= msg
-
-  .form-group
-    = f.label :total
-    = f.text_field :total, class: 'form-control'
-  .form-group
-    = f.label :state
-    = f.select :state, options_for_select(Order::STATES), {prompt: ''}, class: 'form-control'
-  .form-group
-    = f.label :customer_id
-    = f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :full_name), {include_blank: true}, class: 'form-control'
-  = render 'line_items', f: f
-  .actions.form-group
-    = f.submit 'Save', class: 'btn btn-primary'
+  %fieldset
+    .form-group
+      = f.label :total
+      = f.text_field :total, class: 'form-control'
+    .form-group
+      = f.label :state
+      = f.select :state, options_for_select(Order::STATES), {prompt: ''}, class: 'form-control'
+    .form-group
+      = f.label :customer_id
+      = f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :full_name), {include_blank: true}, class: 'form-control'
+    = render 'line_items', f: f
+    .actions.form-group
+      = f.submit 'Save', class: 'btn btn-primary'

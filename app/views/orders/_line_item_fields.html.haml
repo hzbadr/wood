@@ -1,9 +1,10 @@
-.form-group
-  = f.label :variant
-  = f.select :variant, options_from_collection_for_select(Variant.all, :id, :name), {include_blank: true}, {class: 'form-control'}
-.form-group
-  = f.label :quantity
-  = f.text_field :quantity, class: 'form-control'
-.form-group
-  = f.hidden_field :_destroy
-  = link_to "Remove", '#', class: "remove_fields"
+%fieldset
+  .form-group
+    = f.label :variant
+    = f.select :variant, options_from_collection_for_select(Variant.all, :id, :name), {include_blank: true}, {class: 'form-control'}
+  .form-group
+    = f.label :quantity
+    = f.text_field :quantity, class: 'form-control'
+  .form-group
+    = f.hidden_field :_destroy
+    = link_to "Remove", '#', class: "remove_fields"

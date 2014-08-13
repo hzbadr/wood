@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @order.line_items.build
   end
 
   # GET /orders/1/edit
@@ -27,7 +28,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.created_by = current_user
-    
+
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }

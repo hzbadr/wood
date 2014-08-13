@@ -1,7 +1,14 @@
-.form-group
-  = f.check_box :_destroy
-  = f.label :_destroy, "Remove Item"
+%fieldset
+  -binding.pry
   = f.fields_for :line_items do |builder|
-    = render 'line_items_fields', f: builder
+    .form-group
+      = builder.label :variant_id
+      = builder.select :variant_id, options_from_collection_for_select(Variant.all, :id, :name), {include_blank: true}, {class: 'form-control'}
+    .form-group
+      = builder.label :quantity
+      = builder.text_field :quantity, class: 'form-control'
+    .form-group
+      = builder.hidden_field :_destroy
+      = link_to "Remove", '#', class: "remove_fields"
 
-= link_to_add_fields "Add Item", f, :line_items
+  = link_to_add_fields "Add Item", f, :line_items
