@@ -6,23 +6,15 @@
         - @order.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :number
-    = f.number_field :number
-  .field
+  .form-group
     = f.label :total
-    = f.text_field :total
-  .field
+    = f.text_field :total, class: 'form-control'
+  .form-group
     = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :customer
-    = f.text_field :customer
-  .field
-    = f.label :completed_at
-    = f.datetime_select :completed_at
-  .field
-    = f.label :created_by
-    = f.text_field :created_by
-  .actions
-    = f.submit 'Save'
+    = f.select :state, options_for_select(Order::STATES), {prompt: ''}, class: 'form-control'
+  .form-group
+    = f.label :customer_id
+    = f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :full_name), {include_blank: true}, class: 'form-control'
+  = render 'line_items', f: f
+  .actions.form-group
+    = f.submit 'Save', class: 'btn btn-primary'

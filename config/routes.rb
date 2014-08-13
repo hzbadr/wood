@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :payments
 
-  resources :orders
-
-  resources :line_items
+  resources :orders do
+    resources :line_items
+  end
 
   resources :stock_transfers
 

@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.integer :number
+      t.string :number
       t.decimal :total
       t.string :state
       t.references :customer, index: true

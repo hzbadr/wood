@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140813174453) do
   add_index "line_items", ["variant_id"], name: "index_line_items_on_variant_id", using: :btree
 
   create_table "orders", force: true do |t|
-    t.integer  "number"
+    t.string   "number"
     t.decimal  "total",         precision: 10, scale: 0
     t.string   "state"
     t.integer  "customer_id"

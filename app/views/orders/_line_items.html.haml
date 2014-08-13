@@ -1,0 +1,7 @@
+.form-group
+  = f.check_box :_destroy
+  = f.label :_destroy, "Remove Item"
+  = f.fields_for :line_items do |builder|
+    = render 'line_items_fields', f: builder
+
+= link_to_add_fields "Add Item", f, :line_items

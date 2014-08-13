@@ -1,10 +1,13 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_order
+
   # GET /line_items
   # GET /line_items.json
   def index
-    @line_items = LineItem.all
+    @search = @order.line_items.search(params[:q])
+    @line_items = @search.result
   end
 
   # GET /line_items/1
@@ -14,7 +17,7 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/new
   def new
-    @line_item = LineItem.new
+    @line_item = @order.line_items.build
   end
 
   # GET /line_items/1/edit
@@ -24,7 +27,7 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(line_item_params)
+    @line_item = @order.line_items.new(line_item_params)
 
     respond_to do |format|
       if @line_item.save
@@ -63,12 +66,17 @@ class LineItemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_order
+      @order = Orde.find(params[:order_id])
+    end
+    
     def set_line_item
-      @line_item = LineItem.find(params[:id])
+      @line_item = @order.line_items.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
       params.require(:line_item).permit(:variant_id, :quantity, :price, :cost_price, :order_id)
     end
+
 end

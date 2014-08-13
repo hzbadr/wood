@@ -11,13 +11,13 @@
   = @order.state
 %p
   %b Customer:
-  = @order.customer
+  = @order.customer.full_name
 %p
   %b Completed at:
   = @order.completed_at
 %p
   %b Created by:
-  = @order.created_by
+  = @order.created_by.full_name
 
 = link_to 'Edit', edit_order_path(@order)
 \|

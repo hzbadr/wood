@@ -30,8 +30,8 @@
             %th Total
             %th State
             %th Customer
-            %th Completed at
             %th Created by
+            %th Completed at
             %th
             %th
             %th
@@ -41,9 +41,9 @@
               %td= order.number
               %td= order.total
               %td= order.state
-              %td= order.customer.name
+              %td= order.customer.full_name
+              %td= order.created_by.full_name
               %td= order.completed_at
-              %td= order.created_by
               %td= link_to 'Show', order
               %td= link_to 'Edit', edit_order_path(order)
               %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }

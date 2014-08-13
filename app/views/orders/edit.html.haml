@@ -1,7 +1,10 @@
-%h1 Editing order
-
-= render 'form'
-
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4= Edit #{@order.number}
+    .panel-body
+      = render 'form'
+s
 = link_to 'Show', @order
 \|
 = link_to 'Back', orders_path

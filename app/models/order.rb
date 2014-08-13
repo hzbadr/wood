@@ -5,7 +5,13 @@ class Order < ActiveRecord::Base
   has_many :line_items, dependent: :destroy, inverse_of: :order
   has_many :payments, dependent: :destroy
 
+  validates :number, :customer_id, :state, :total, presence: true
+
   before_validation :generate_order_number, on: :create
+
+  accepts_nested_attributes_for :line_items, allow_destroy: true
+
+  STATES = %w(started in-progress completed)
 
   # from spree
   def generate_order_number(digits = 9)
