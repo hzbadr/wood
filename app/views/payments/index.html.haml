@@ -22,6 +22,7 @@
       .col-xs-12
         %table.table.table-striped.table-bordered.table-hover
           %tr
+            %th Date
             %th Amount
             %th Order
             %th Customer
@@ -33,14 +34,15 @@
 
           - @payments.each do |payment|
             %tr
+              %td= payment.date
               %td= payment.amount
-              %td= payment.order
-              %td= payment.customer
+              %td= payment.order.number
+              %td= payment.customer.full_name
               %td= payment.state
-              %td= payment.payment_method
-              %td= link_to 'Show', payment
-              %td= link_to 'Edit', edit_payment_path(payment)
-              %td= link_to 'Destroy', payment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= payment.payment_method.try(:name)
+              %td= link_to 'Show', order_payment_path(@order, payment)
+              %td= link_to 'Edit', edit_order_payment_path(@order, payment)
+              %td= link_to 'Destroy', order_payment_path(@order, payment), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
-= link_to 'New Payment', new_payment_path
+= link_to 'New Payment', new_order_payment_path(@order)

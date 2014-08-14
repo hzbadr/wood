@@ -1,6 +1,9 @@
-%h1 Editing Payment Method
-
-= render 'form'
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit #{@payment_method.name}
+    .panel-body
+      = render 'form'
 
 = link_to 'Show', @payment_method
 \|

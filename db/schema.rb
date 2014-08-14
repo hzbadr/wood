@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813174453) do
+ActiveRecord::Schema.define(version: 20140814191143) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140813174453) do
     t.integer  "payment_method_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   add_index "payments", ["customer_id"], name: "index_payments_on_customer_id", using: :btree

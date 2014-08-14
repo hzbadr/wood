@@ -1,4 +1,4 @@
-= form_for @payment do |f|
+= form_for [@order, @payment] do |f|
   - if @payment.errors.any?
     #error_explanation
       %h2= "#{pluralize(@payment.errors.count, "error")} prohibited this payment from being saved:"
@@ -6,20 +6,23 @@
         - @payment.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :amount
-    = f.text_field :amount
-  .field
-    = f.label :order
-    = f.text_field :order
-  .field
-    = f.label :customer
-    = f.text_field :customer
-  .field
+    = f.text_field :amount, class: 'form-control'
+  .form-group
+    = f.label :date
+    = f.date_field :date, class: 'form-control'
+  -# .form-group
+  -#   = f.label :order_id
+  -#   = f.select :order_id, options_from_collection_for_select(Order.all, :id, :number, @payment.order_id), {include_blank: true},  class: 'form-control'
+  .form-group
+    = f.label :customer_id
+    = f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :full_name, @payment.customer_id), {include_blank: true}, class: 'form-control'
+  .form-group
     = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :payment_method
-    = f.text_field :payment_method
+    = f.text_field :state, class: 'form-control'
+  .form-group
+    = f.label :payment_method_id
+    = f.select :payment_method_id, options_from_collection_for_select(PaymentMethod.all, :id, :name, @payment.payment_method_id), {include_blank: true}, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'

@@ -6,11 +6,11 @@
         - @payment_method.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :name
-    = f.text_field :name
-  .field
+    = f.text_field :name, class: 'form-control'
+  .form-group
     = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+    = f.text_area :description, class: 'form-control'
+  .actions.form-group
+    = f.submit 'Save', class: 'btn btn-primary'

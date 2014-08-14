@@ -1,20 +1,21 @@
-%p#notice= notice
-
+%p
+  %b Date:
+  = @payment.date
 %p
   %b Amount:
   = @payment.amount
 %p
   %b Order:
-  = @payment.order
+  = @payment.order.number
 %p
   %b Customer:
-  = @payment.customer
+  = @payment.customer.full_name
 %p
   %b State:
   = @payment.state
 %p
   %b Payment method:
-  = @payment.payment_method
+  = @payment.payment_method.try(:name)
 
 = link_to 'Edit', edit_payment_path(@payment)
 \|

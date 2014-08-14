@@ -11,12 +11,27 @@ class Order < ActiveRecord::Base
 
   before_validation :set_default_state, on: :create
 
-  before_validation :update_order_total
+  before_validation :update_order_total, on: :create
 
   accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:variant_id] .nil?}
 
 
-  STARTED, INPROGRESS, COMPLETED = STATES = %w(started in-progress completed)
+  STARTED, INPROGRESS, COMPLETED = STATES = %w(started inprogress completed canceled)
+
+  STATES.each do |s|
+    define_method "#{s}?" do
+      self.state == s
+    end
+  end
+
+  def payment_required?
+    total.to_f > 0.0
+  end
+
+  #order amount
+  def amount
+    line_items.inject(0.0) { |sum, li| sum + li.amount }
+  end
 
   private
     # from spree
@@ -38,6 +53,7 @@ class Order < ActiveRecord::Base
       self.state = STARTED
     end
 
+    # total is the remaining (amount - payments)
     def update_order_total
       self.total = line_items.pluck(:price).sum
     end

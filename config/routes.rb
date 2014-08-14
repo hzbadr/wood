@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resources :payment_methods
 
-  resources :payments
+  resources :payments, only: [:index]
 
   resources :orders do
     resources :line_items
+    resources :payments
   end
 
   resources :stock_transfers
