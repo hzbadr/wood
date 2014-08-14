@@ -1,6 +1,9 @@
-%h1 Editing variant
-
-= render 'form'
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit #{@variant.name}
+    .panel-body
+      = render 'form'
 
 = link_to 'Show', @variant
 \|
