@@ -5,6 +5,6 @@
     .panel-body
       = render 'form'
 
-= link_to 'Show', @payment
+= link_to 'Show', order_payment_path(@order, @payment)
 \|
-= link_to 'Back', payments_path
+= link_to 'Back', order_payments_path(@order)

@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20140814205109) do
 
   create_table "line_items", force: true do |t|
     t.integer  "variant_id"
-    t.decimal  "quantity",   precision: 10, scale: 0
-    t.decimal  "price",      precision: 10, scale: 0
-    t.decimal  "cost_price", precision: 10, scale: 0
+    t.decimal  "quantity",   precision: 8, scale: 2
+    t.decimal  "price",      precision: 8, scale: 2
+    t.decimal  "cost_price", precision: 8, scale: 2
     t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -61,19 +61,19 @@ ActiveRecord::Schema.define(version: 20140814205109) do
   end
 
   create_table "payments", force: true do |t|
-    t.decimal  "amount",            precision: 10, scale: 0
-    t.integer  "order_id"
-    t.integer  "customer_id"
+    t.decimal  "amount",            precision: 8, scale: 2
+    t.integer  "source_id"
     t.string   "state"
     t.integer  "payment_method_id"
+    t.integer  "payable_id"
+    t.string   "payable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date"
   end
 
-  add_index "payments", ["customer_id"], name: "index_payments_on_customer_id", using: :btree
-  add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
   add_index "payments", ["payment_method_id"], name: "index_payments_on_payment_method_id", using: :btree
+  add_index "payments", ["source_id"], name: "index_payments_on_source_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20140814205109) do
 
   create_table "stocks", force: true do |t|
     t.integer  "variant_id"
-    t.decimal  "quantity",   precision: 10, scale: 0
+    t.decimal  "quantity",   precision: 8, scale: 2
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -129,22 +129,17 @@ ActiveRecord::Schema.define(version: 20140814205109) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "variants", force: true do |t|
-    t.decimal  "weight",     precision: 10, scale: 0
-    t.decimal  "width",      precision: 10, scale: 0
-    t.decimal  "height",     precision: 10, scale: 0
-    t.decimal  "depth",      precision: 10, scale: 0
+    t.decimal  "weight",     precision: 8, scale: 2
+    t.decimal  "width",      precision: 8, scale: 2
+    t.decimal  "height",     precision: 8, scale: 2
+    t.decimal  "depth",      precision: 8, scale: 2
     t.integer  "product_id"
-    t.decimal  "cost_price", precision: 10, scale: 0
-    t.decimal  "price",      precision: 10, scale: 0
+    t.decimal  "cost_price", precision: 8, scale: 2
+    t.decimal  "price",      precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "variants", ["product_id"], name: "index_variants_on_product_id", using: :btree
-
-  create_table "vendors", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

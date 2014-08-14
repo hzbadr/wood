@@ -9,16 +9,26 @@
           %ul
             - @order.errors.full_messages.each do |msg|
               %li= msg
+      %fieldset
+        .form-group
+          = f.label :total
+          = f.text_field :total, class: 'form-control'
+        .form-group
+          = f.label :state
+          = f.select :state, options_for_select(Order::STATES), {prompt: ''}, class: 'form-control'
+        .form-group
+          = f.label :customer_id
+          = f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :full_name, f.object.customer_id), {include_blank: true}, class: 'form-control'
+      - unless @order.new_record?
+        %h4 Order Payments:
+        - @order.payments.each do |p|
+          %b Customer:
+          %p= p.source.full_name
+          %b State
+          %p= p.state
+          %b Date
+          %p= p.date
 
-      .form-group
-        = f.label :total
-        = f.text_field :total, class: 'form-control'
-      .form-group
-        = f.label :state
-        = f.select :state, options_for_select(Order::STATES), {prompt: ''}, class: 'form-control'
-      .form-group
-        = f.label :customer_id
-        = f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :full_name, f.object.customer_id), {include_blank: true}, class: 'form-control'
     .col-xs-5.col-xs-offset-1.order-line-items
       %h4 Order Items:
       = f.fields_for :line_items do |flt|

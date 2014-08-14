@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: [:show, :edit, :update, :destroy]
   before_action :set_order
+  before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
   # GET /payments
   # GET /payments.json
@@ -75,6 +75,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:amount, :date, :order_id, :customer_id, :state, :payment_method_id)
+      params.require(:payment).permit(:amount, :date, :order_id, :source_id, :state, :payment_method_id)
     end
 end

@@ -9,8 +9,8 @@
               .row
                 .col-xs-6
                   .form-group
-                    = f.label :customer_id_eq, 'Customer'
-                    = f.select :customer_id_eq, options_from_collection_for_select(Customer.all, :id, :full_name, params[:q].fetch(:customer_id_eq, nil)), {include_blank: true}, class: 'form-control'
+                    = f.label :source_id_eq, 'Customer'
+                    = f.select :source_id_eq, options_from_collection_for_select(Customer.all, :id, :full_name, params[:q].fetch(:source_id_eq, nil)), {include_blank: true}, class: 'form-control'
                 .col-xs-2
                   .form-group
                     %button.btn.btn-default{type: "submit", style: "margin-top:19px"}
@@ -36,8 +36,8 @@
             %tr
               %td= payment.date
               %td= payment.amount
-              %td= payment.order.number
-              %td= payment.customer.full_name
+              %td= payment.payable.number
+              %td= payment.source.full_name
               %td= payment.state
               %td= payment.payment_method.try(:name)
               %td= link_to 'Show', order_payment_path(@order, payment)

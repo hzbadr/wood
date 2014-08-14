@@ -6,10 +6,10 @@
   = @payment.amount
 %p
   %b Order:
-  = @payment.order.number
+  = @payment.payable.number
 %p
   %b Customer:
-  = @payment.customer.full_name
+  = @payment.source.full_name
 %p
   %b State:
   = @payment.state
@@ -17,6 +17,6 @@
   %b Payment method:
   = @payment.payment_method.try(:name)
 
-= link_to 'Edit', edit_payment_path(@payment)
+= link_to 'Edit', edit_order_payment_path(@order, @payment)
 \|
-= link_to 'Back', payments_path
+= link_to 'Back', order_payments_path(@order)

@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   belongs_to :created_by, class_name: 'User'
   
   has_many :line_items, dependent: :destroy, inverse_of: :order
-  has_many :payments, dependent: :destroy
+  has_many :payments, as: :payable, dependent: :destroy
 
   validates :number, :customer_id, :state, :total, presence: true
 
@@ -16,16 +16,14 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:variant_id] .nil?}
 
 
-  STARTED, INPROGRESS, COMPLETED = STATES = %w(started inprogress completed canceled)
+  CREATED, PENDING, PROCESSING, COMPLETED, CANCELED = STATES = %w(created pending processing completed canceled)
 
   STATES.each do |s|
     define_method "#{s}?" do
       self.state == s
     end
-  end
 
-  def payment_required?
-    total.to_f > 0.0
+    scope s.to_sym, ->(){where(state: s)}
   end
 
   #order amount
@@ -50,7 +48,7 @@ class Order < ActiveRecord::Base
     end
 
     def set_default_state
-      self.state = STARTED
+      self.state = CREATED
     end
 
     # total is the remaining (amount - payments)
