@@ -20,6 +20,8 @@
             %th Name
             %th Parent
             %th
+            %th
+            %th
 
           - @categories.each do |category|
             %tr
@@ -27,9 +29,9 @@
               %td= category.parent.try(:name)
               %td
                 %span= link_to 'Show', category
-                \|
+              %td
                 %span= link_to 'Edit', edit_category_path(category)
-                \|
+              %td
                 %span= link_to 'Destroy', category, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
