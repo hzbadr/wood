@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814191143) do
+ActiveRecord::Schema.define(version: 20140814205109) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140814191143) do
     t.integer  "created_by_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "payment_total", precision: 8,  scale: 2
   end
 
   add_index "orders", ["created_by_id"], name: "index_orders_on_created_by_id", using: :btree
