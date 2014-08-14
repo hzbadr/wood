@@ -2,6 +2,7 @@
 = form_for @order do |f|
   .row
     .col-xs-5
+      %h4 Order Details:
       - if @order.errors.any?
         #error_explanation
           %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
@@ -18,7 +19,8 @@
       .form-group
         = f.label :customer_id
         = f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :full_name, f.object.customer_id), {include_blank: true}, class: 'form-control'
-    .col-xs-5.col-xs-offset-1
+    .col-xs-5.col-xs-offset-1.order-line-items
+      %h4 Order Items:
       = f.fields_for :line_items do |flt|
         =render 'line_item_fields', f: flt
       
