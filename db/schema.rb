@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814205109) do
+ActiveRecord::Schema.define(version: 20140813174453) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20140814205109) do
     t.integer  "created_by_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "payment_total", precision: 8,  scale: 2
   end
 
   add_index "orders", ["created_by_id"], name: "index_orders_on_created_by_id", using: :btree
@@ -62,18 +61,18 @@ ActiveRecord::Schema.define(version: 20140814205109) do
 
   create_table "payments", force: true do |t|
     t.decimal  "amount",            precision: 8, scale: 2
-    t.integer  "source_id"
+    t.integer  "user_id"
     t.string   "state"
     t.integer  "payment_method_id"
     t.integer  "payable_id"
     t.string   "payable_type"
+    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "date"
   end
 
   add_index "payments", ["payment_method_id"], name: "index_payments_on_payment_method_id", using: :btree
-  add_index "payments", ["source_id"], name: "index_payments_on_source_id", using: :btree
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"
