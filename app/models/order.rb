@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
 
   before_validation :set_default_state, on: :create
 
-  before_validation :update_order_total, on: :create
+  before_validation :update_order_total
 
   accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:variant_id] .nil?}
 
@@ -23,12 +23,21 @@ class Order < ActiveRecord::Base
       self.state == s
     end
 
-    scope s.to_sym, ->(){where(state: s)}
+    scope s.to_sym, ->(){ where(state: s) }
+    scope "not_#{s}".to_sym, ->(){ where.not(state: s) }
+
   end
 
   #order amount
   def amount
     line_items.inject(0.0) { |sum, li| sum + li.amount }
+  end
+
+  def self.total_amount_for_customer(customer_id)
+    not_canceled.where(customer_id: customer_id)
+                .select('SUM(total) as customer_total_amount')
+                .first
+                .customer_total_amount
   end
 
   private

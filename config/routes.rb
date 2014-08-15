@@ -12,9 +12,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  resources :customers
+  resources :customers do
+    resources :customer_payments, path: :payments
+  end
 
-  resources :suppliers
+  resources :suppliers do
+    resources :supplier_payments, path: :payments
+  end
 
   resources :stocks
 

@@ -19,17 +19,13 @@
           %tr
             %th Name
             %th Description
-            %th
-            %th
-            %th
+            %th.actions-column
 
           - @payment_methods.each do |payment_method|
             %tr
               %td= payment_method.name
               %td= payment_method.description
-              %td= link_to 'Show', payment_method
-              %td= link_to 'Edit', edit_payment_method_path(payment_method)
-              %td= link_to 'Destroy', payment_method, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= render 'actions', payment_method: payment_method
 
 
 = link_to 'New Payment method', new_payment_method_path

@@ -19,17 +19,13 @@
           %tr
             %th Name
             %th Description
-            %th
-            %th
-            %th
+            %th.actions-column
 
           - @products.each do |product|
             %tr
               %td= product.name
               %td= product.description
-              %td= link_to 'Show', product
-              %td= link_to 'Edit', edit_product_path(product)
-              %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= render 'actions', product: product
 
 
 = link_to 'New Product', new_product_path

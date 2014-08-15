@@ -19,17 +19,13 @@
             %th Name
             %th email
             %th phone
-            %th
-            %th
-            %th
+            %th.actions-column
 
           - @customers.each do |customer|
             %tr
               %td= customer.full_name
               %td= customer.email
               %td= customer.phone
-              %td= link_to 'Show', customer
-              %td= link_to 'Edit', edit_customer_path(customer)
-              %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= render 'actions', customer: customer
 
 = link_to 'New Customer', new_customer_path

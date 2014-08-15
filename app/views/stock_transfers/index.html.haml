@@ -34,9 +34,7 @@
             %th Variant
             %th Quantity
             %th Date
-            %th
-            %th
-            %th
+            %th.actions-column
 
           - @stock_transfers.each do |stock_transfer|
             %tr
@@ -44,9 +42,7 @@
               %td= stock_transfer.variant.name
               %td= stock_transfer.quantity
               %td= stock_transfer.date
-              %td= link_to 'Show', stock_transfer
-              %td= link_to 'Edit', edit_stock_transfer_path(stock_transfer)
-              %td= link_to 'Destroy', stock_transfer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= render 'actions', stock_transfer: stock_transfer
 
 
 = link_to 'New Stock transfer', new_stock_transfer_path

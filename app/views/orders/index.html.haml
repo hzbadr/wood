@@ -32,10 +32,7 @@
             %th Customer
             %th Created by
             %th Completed at
-            %th 
-            %th
-            %th
-            %th
+            %th.actions-column
 
           - @orders.each do |order|
             %tr
@@ -45,9 +42,6 @@
               %td= order.customer.full_name
               %td= order.created_by.full_name
               %td= order.completed_at
-              %td= link_to 'Add Payment', new_order_payment_path(order)
-              %td= link_to 'Show', order
-              %td= link_to 'Edit', edit_order_path(order)
-              %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= render 'actions', order: order
 
 = link_to 'New Order', new_order_path

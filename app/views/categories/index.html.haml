@@ -19,20 +19,13 @@
           %tr
             %th Name
             %th Parent
-            %th
-            %th
-            %th
+            %th.actions-column
 
           - @categories.each do |category|
             %tr
               %td= category.name
               %td= category.parent.try(:name)
-              %td
-                %span= link_to 'Show', category
-              %td
-                %span= link_to 'Edit', edit_category_path(category)
-              %td
-                %span= link_to 'Destroy', category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= render 'actions', category: category
 
 
 = link_to 'New Category', new_category_path

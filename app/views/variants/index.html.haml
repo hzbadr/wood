@@ -23,9 +23,7 @@
             %th Product
             %th Cost price
             %th Price
-            %th
-            %th
-            %th
+            %th.actions-column
 
           - @variants.each do |variant|
             %tr
@@ -36,8 +34,6 @@
               %td= variant.product.name
               %td= variant.cost_price
               %td= variant.price
-              %td= link_to 'Show', variant
-              %td= link_to 'Edit', edit_variant_path(variant)
-              %td= link_to 'Destroy', variant, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= render 'actions', variant: variant
 
 = link_to 'New Variant', new_variant_path

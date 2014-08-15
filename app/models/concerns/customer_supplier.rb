@@ -2,6 +2,8 @@ module CustomerSupplier
   extend ActiveSupport::Concern
   
   included do
+    has_many :payments, foreign_key: :source_id
+
     before_validation :set_user_name, if: ->(u){u.username.blank?}
     
     def password_required?
