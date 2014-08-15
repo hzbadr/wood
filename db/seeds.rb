@@ -48,3 +48,11 @@ customers = Customer.all
     order.line_items << LineItem.create(variant_id: variants.sample.id, quantity: rand(1..10)*i)
   end
 end
+
+methods = (1..4).to_a.collect do |i|
+  PaymentMethod.create(name: "Payment #{i}")
+end
+
+(1..100).to_a.each do |i|
+  Payment.create(amount: i*rand(1..100), user_id: customers.sample.id, payment_method_id: methods.sample.id, state: 'paid', date: DateTime.now.advance(days: -rand(1..60)))
+end
