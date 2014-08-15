@@ -1,6 +1,6 @@
 class LineItem < ActiveRecord::Base
   belongs_to :variant
-  belongs_to :order
+  belongs_to :order, touch: true
 
   before_validation :set_price_and_cost_price
 

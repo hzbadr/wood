@@ -1,11 +1,11 @@
 class PaymentsController < ApplicationController
-  before_action :set_order
+  before_action :set_customer_or_supplier
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
   # GET /payments
   # GET /payments.json
   def index
-    @search = @order.payments.search(params[:q])
+    @search = @user.payments.search(params[:q])
     @payments = @search.result
   end
 
@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = @order.payments.build
+    @payment = @user.payments.build
   end
 
   # GET /payments/1/edit
@@ -26,11 +26,11 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    @payment = @order.payments.new(payment_params)
+    @payment = @user.payments.new(payment_params)
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to [@order, @payment], notice: 'Payment was successfully created.' }
+        format.html { redirect_to [@user, @payment], notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to [@order, @payment], notice: 'Payment was successfully updated.' }
+        format.html { redirect_to [@user, @payment], notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else
         format.html { render :edit }
@@ -65,16 +65,16 @@ class PaymentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:order_id])
+    def set_customer_or_supplier
+      @user = User.find(params[:customer_id] || params[:supplier_id])
     end
 
     def set_payment
-      @payment = @order.payments.find(params[:id])
+      @payment = @user.payments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:amount, :date, :order_id, :source_id, :state, :payment_method_id)
+      params.require(:payment).permit(:amount, :date, :user_id, :source_id, :state, :payment_method_id)
     end
 end

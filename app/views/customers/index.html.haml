@@ -19,6 +19,9 @@
             %th Name
             %th email
             %th phone
+            %th Total Amount
+            %th Total Paid
+            %th Remaining Amount
             %th.actions-column
 
           - @customers.each do |customer|
@@ -26,6 +29,9 @@
               %td= customer.full_name
               %td= customer.email
               %td= customer.phone
+              %td= customer.tatal_amount ||= 0
+              %td= customer.paid_amount ||= 0
+              %td= customer.tatal_amount - customer.paid_amount 
               %td= render 'actions', customer: customer
 
 = link_to 'New Customer', new_customer_path

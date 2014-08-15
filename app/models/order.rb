@@ -3,15 +3,14 @@ class Order < ActiveRecord::Base
   belongs_to :created_by, class_name: 'User'
   
   has_many :line_items, dependent: :destroy, inverse_of: :order
-  has_many :payments, as: :payable, dependent: :destroy
 
-  validates :number, :customer_id, :state, :total, presence: true
+  validates :number, :customer_id, :state, presence: true
 
   before_validation :generate_order_number, on: :create
 
   before_validation :set_default_state, on: :create
 
-  before_validation :update_order_total
+  after_touch :update_order_total
 
   accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:variant_id] .nil?}
 
@@ -62,6 +61,6 @@ class Order < ActiveRecord::Base
 
     # total is the remaining (amount - payments)
     def update_order_total
-      self.total = line_items.pluck(:price).sum
+      update(total: line_items.pluck(:price).sum)
     end
 end

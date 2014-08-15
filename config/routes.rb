@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   resources :orders do
     resources :line_items
-    resources :payments
   end
 
   resources :stock_transfers
@@ -13,11 +12,11 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :customers do
-    resources :customer_payments, path: :payments
+    resources :payments
   end
 
   resources :suppliers do
-    resources :supplier_payments, path: :payments
+    resources :payments
   end
 
   resources :stocks
