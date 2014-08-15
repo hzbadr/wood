@@ -22,17 +22,7 @@
   %p
     %b Product:
     = l.variant.name
-%br
-%br
 
-%h4 Order Payments:
-- @order.payments.each do |p|
-  %b Customer:
-  %p= p.source.full_name
-  %b Date
-  %p= p.date
-  %b State
-  %p= p.state
 
 = link_to 'Edit', edit_order_path(@order)
 \|
