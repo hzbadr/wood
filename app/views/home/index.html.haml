@@ -1,31 +1,105 @@
-
 .row
-  .col-xs-2
-    = link_to categories_path do
-      %center
-        %h5 Categories
-  .col-xs-2
-    = link_to customers_path do
-      %center
-        %h5 Customers
-  .col-xs-2
-    = link_to suppliers_path do
-      %center
-        %h5 Suppliers
-  .col-xs-2
-    = link_to products_path do
-      %center
-        %h5 Products
-  .col-xs-2
-    = link_to variants_path do
-      %center
-        %h5 Variants
-  .col-xs-2
-    = link_to stocks_path do
-      %center
-        %h5 Stocks
-  .col-xs-2
-    = link_to stock_transfers_path do
-      %center
-        %h5 Stock Trasnfers
+  .col-xs-6
+    .panel.panel-primary
+      .panel-heading
+        Top Remaining
 
+      .panel-body
+        .row
+          .col-xs-12
+            %table.table.table-striped.table-bordered.table-hover.data-table
+              %tr
+                %th Name
+                %th Remaining
+
+              - @top_remaining_customers.each do |customer|
+                %tr
+                  %td= customer.full_name
+                  %td= customer.remaining ||= 0
+  .col-xs-6
+    .panel.panel-primary
+      .panel-heading
+        Low Remaining
+
+      .panel-body
+        .row
+          .col-xs-12
+            %table.table.table-striped.table-bordered.table-hover.data-table
+              %tr
+                %th Name
+                %th Remaining
+
+              - @low_remaining_customers.each do |customer|
+                %tr
+                  %td= customer.full_name
+                  %td= customer.remaining ||= 0
+.row
+  .col-xs-6
+    .panel.panel-primary
+      .panel-heading
+        Top Payers
+
+      .panel-body
+        .row
+          .col-xs-12
+            %table.table.table-striped.table-bordered.table-hover.data-table
+              %tr
+                %th Name
+                %th Total Paid
+
+              - @top_paying_customers.each do |customer|
+                %tr
+                  %td= customer.full_name
+                  %td= customer.paid_amount ||= 0
+  .col-xs-6
+    .panel.panel-primary
+      .panel-heading
+        Top Orders
+
+      .panel-body
+        .row
+          .col-xs-12
+            %table.table.table-striped.table-bordered.table-hover.data-table
+              %tr
+                %th Name
+                %th Total Amount
+
+              - @top_ordering_customers.each do |customer|
+                %tr
+                  %td= customer.full_name
+                  %td= customer.total_amount ||= 0
+.row
+  .col-xs-6
+    .panel.panel-primary
+      .panel-heading
+        Low Payers
+
+      .panel-body
+        .row
+          .col-xs-12
+            %table.table.table-striped.table-bordered.table-hover.data-table
+              %tr
+                %th Name
+                %th Total Paid
+
+              - @low_paying_customers.each do |customer|
+                %tr
+                  %td= customer.full_name
+                  %td= customer.paid_amount ||= 0
+  .col-xs-6
+    .panel.panel-primary
+      .panel-heading
+        Low Orders
+
+      .panel-body
+        .row
+          .col-xs-12
+            %table.table.table-striped.table-bordered.table-hover.data-table
+              %tr
+                %th Name
+                %th Total Amount
+
+              - @low_ordering_customers.each do |customer|
+                %tr
+                  %td= customer.full_name
+                  %td= customer.total_amount ||= 0

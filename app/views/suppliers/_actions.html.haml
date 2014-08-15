@@ -11,4 +11,4 @@
       = link_to 'Destroy', supplier, :method => :delete, :data => { :confirm => 'Are you sure?' }
     %li.divider
     %li
-      %a{href: "#"} Separated link
+      = link_to 'New Payment', new_supplier_payment_path(supplier)
