@@ -3,9 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 show_destination = ->
-  $('#customer-tr, #safe-tr, #bank-tr').hide()
+  $('#customer-tr, #safe-tr, #bank-tr').prop('disabled', true).hide()
   id = $('#transaction_destination_type').val().toLowerCase() + "-tr"
-  $("#"+id).show()
+  $("#"+id).prop('disabled', false).show()
 
 ready = ->
   show_destination()
