@@ -7,6 +7,8 @@ class Transaction < ActiveRecord::Base
 
   validate :source_is_not_destination
 
+  DESTINATION_TYPES = [ 'Safe', 'Bank', 'Customer']
+
   private
     def source_is_not_destination
       errors.add(:source, ' and destination can not be the same!') if source == destination

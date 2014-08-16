@@ -17,5 +17,4 @@
 //= require plugins/metisMenu/metisMenu.min
 //= require sb-admin-2.js
 //= require line_items
-
-
+//= require transactions

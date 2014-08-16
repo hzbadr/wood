@@ -6,20 +6,21 @@
         - @transaction.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :amount
-    = f.text_field :amount
-  .field
-    = f.label :source_id
-    = f.text_field :source_id
-  .field
+    = f.text_field :amount, class: 'form-control'
+  .form-group
     = f.label :destination_type
-    = f.text_field :destination_type
-  .field
+    = f.select :destination_type, options_for_select(Transaction::DESTINATION_TYPES, @transaction.destination_type), {include_blank: true}, class: 'form-control'
+  .form-group
     = f.label :destination_id
-    = f.text_field :destination_id
-  .field
+    = f.select :destination_id, options_from_collection_for_select(Safe.all, :id, :name, @transaction.source_id), {include_blank: true}, class: 'form-control', id: 'safe-tr'
+    
+    = f.select :destination_id, options_from_collection_for_select(Bank.all, :id, :name, @transaction.source_id), {include_blank: true}, class: 'form-control', id: 'bank-tr'
+    
+    = f.select :destination_id, options_from_collection_for_select(Customer.all, :id, :full_name, @transaction.source_id), {include_blank: true}, class: 'form-control', id: 'customer-tr'
+  .form-group
     = f.label :date
-    = f.date_select :date
+    = f.date_field :date, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'
