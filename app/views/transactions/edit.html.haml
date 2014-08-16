@@ -1,0 +1,7 @@
+%h1 Editing transaction
+
+= render 'form'
+
+= link_to 'Show', polymorphic_path([@source, @transaction])
+\|
+= link_to 'Back', polymorphic_path([@source, :transactions])

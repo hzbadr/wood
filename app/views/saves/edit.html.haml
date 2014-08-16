@@ -1,0 +1,11 @@
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit #{@safe.name}
+    .panel-body
+      = render 'form'
+
+
+= link_to 'Show', @safe
+\|
+= link_to 'Back', saves_path

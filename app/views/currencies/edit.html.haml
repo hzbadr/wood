@@ -1,0 +1,10 @@
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit #{@currency.name}
+    .panel-body
+      = render 'form'
+
+= link_to 'Show', @currency
+\|
+= link_to 'Back', currencies_path

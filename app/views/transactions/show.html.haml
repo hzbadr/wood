@@ -1,0 +1,16 @@
+%p
+  %b Amount:
+  = @transaction.amount
+%p
+  %b Source:
+  = @transaction.source.name
+%p
+  %b Destination:
+  = @transaction.destination.name
+%p
+  %b Date:
+  = @transaction.date
+
+= link_to 'Edit', edit_polymorphic_path([@source, @transaction])
+\|
+= link_to 'Back', polymorphic_path([@source, :transactions])

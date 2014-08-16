@@ -1,0 +1,35 @@
+%h1 Listing banks
+
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-6
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              = f.search_field :name_cont, class: 'form-control', placeholder: 'Serach...'
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
+
+  .panel-body
+    .row
+      .col-xs-12
+        %table.table.table-striped.table-bordered.table-hover
+          %tr
+            %th Name
+            %th Type
+            %th Account number
+            %th
+            %th
+            %th
+
+          - @banks.each do |bank|
+            %tr
+              %td= bank.name
+              %td= bank.account_number
+              %td= render 'actions', bank: bank
+
+%br
+
+= link_to 'New Bank', new_bank_path

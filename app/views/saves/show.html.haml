@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @safe.name
+%p
+  %b Type:
+  = @safe.type
+%p
+  %b Account number:
+  = @safe.account_number
+
+= link_to 'Edit', edit_safe_path(@safe)
+\|
+= link_to 'Back', saves_path

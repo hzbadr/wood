@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :transactions
+
+  resources :banks do
+    resources :transactions
+  end
+
+  resources :saves do
+    resources :transactions
+  end
+
+  resources :currency_exchanges
+
+  resources :currencies
+
   resources :payment_methods
 
   resources :payments, only: [:index]

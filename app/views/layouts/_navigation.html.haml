@@ -201,5 +201,19 @@
               # = link_to 'Payments', payments_path
             %li
               = link_to 'Payment Methods', payment_methods_path
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-sitemap.fa-fw
+            Financial
+            %span.fa.arrow
+          %ul.nav.nav-second-level
+            %li
+              = link_to 'Currency', currencies_path
+            %li
+              = link_to 'Safe', saves_path
+            %li
+              = link_to 'Bank', banks_path
+            %li
+              = link_to 'Currency Exchange', currency_exchanges_path
 
   = render 'layouts/navigation_links'

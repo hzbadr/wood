@@ -1,0 +1,10 @@
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit #{@bank.name}
+    .panel-body
+      = render 'form'
+
+= link_to 'Show', @bank
+\|
+= link_to 'Back', banks_path

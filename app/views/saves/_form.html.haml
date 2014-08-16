@@ -1,0 +1,13 @@
+= form_for @safe do |f|
+  - if @safe.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@safe.errors.count, "error")} prohibited this safe from being saved:"
+      %ul
+        - @safe.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .actions
+    = f.submit 'Save', class: 'btn btn-primary'

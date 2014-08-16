@@ -1,0 +1,33 @@
+%h1 Listing saves
+
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-6
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              = f.search_field :name_cont, class: 'form-control', placeholder: 'Serach...'
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
+
+  .panel-body
+    .row
+      .col-xs-12
+        %table.table.table-striped.table-bordered.table-hover
+          %tr
+            %th Name
+            %th Type
+            %th Account number
+            %th
+
+          - @saves.each do |safe|
+            %tr
+              %td= safe.name
+              %td= safe.type
+              %td= safe.account_number
+              %td= render 'actions', safe: safe
+
+
+= link_to 'New Safe', new_safe_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813174453) do
+ActiveRecord::Schema.define(version: 20140816104138) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -24,6 +24,29 @@ ActiveRecord::Schema.define(version: 20140813174453) do
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+
+  create_table "currencies", force: true do |t|
+    t.string   "name"
+    t.string   "sign"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "currency_exchanges", force: true do |t|
+    t.integer  "safe_id"
+    t.integer  "source_id"
+    t.decimal  "source_amount",      precision: 10, scale: 0
+    t.integer  "destination_id"
+    t.decimal  "destination_amount", precision: 10, scale: 0
+    t.decimal  "exchange_rate",      precision: 10, scale: 0
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "currency_exchanges", ["destination_id"], name: "index_currency_exchanges_on_destination_id", using: :btree
+  add_index "currency_exchanges", ["safe_id"], name: "index_currency_exchanges_on_safe_id", using: :btree
+  add_index "currency_exchanges", ["source_id"], name: "index_currency_exchanges_on_source_id", using: :btree
 
   create_table "line_items", force: true do |t|
     t.integer  "variant_id"
@@ -81,6 +104,14 @@ ActiveRecord::Schema.define(version: 20140813174453) do
     t.datetime "updated_at"
   end
 
+  create_table "saves", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "account_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "stock_transfers", force: true do |t|
     t.integer  "source_id"
     t.integer  "variant_id"
@@ -102,6 +133,18 @@ ActiveRecord::Schema.define(version: 20140813174453) do
   end
 
   add_index "stocks", ["variant_id"], name: "index_stocks_on_variant_id", using: :btree
+
+  create_table "transactions", force: true do |t|
+    t.decimal  "amount",           precision: 10, scale: 0
+    t.integer  "currency_id"
+    t.integer  "source_id"
+    t.string   "source_type"
+    t.integer  "destination_id"
+    t.string   "destination_type"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

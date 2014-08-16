@@ -1,0 +1,25 @@
+%h1 Listing transactions
+
+%table
+  %tr
+    %th Amount
+    %th Source
+    %th Destination
+    %th Date
+    %th
+    %th
+    %th
+
+  - @transactions.each do |transaction|
+    %tr
+      %td= transaction.amount
+      %td= transaction.source.name
+      %td= transaction.destination.name
+      %td= transaction.date
+      %td= link_to 'Show', [@source, transaction]
+      %td= link_to 'Edit', edit_polymorphic_url([@source, transaction])
+      %td= link_to 'Destroy', [@source, transaction], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Transaction', new_polymorphic_path([@source, :transaction])

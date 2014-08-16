@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Safe:
+  = @currency_exchange.safe
+%p
+  %b Source:
+  = @currency_exchange.source
+%p
+  %b Source amount:
+  = @currency_exchange.source_amount
+%p
+  %b Destination:
+  = @currency_exchange.destination
+%p
+  %b Destination amount:
+  = @currency_exchange.destination_amount
+%p
+  %b Exchange rate:
+  = @currency_exchange.exchange_rate
+%p
+  %b Description:
+  = @currency_exchange.description
+
+= link_to 'Edit', edit_currency_exchange_path(@currency_exchange)
+\|
+= link_to 'Back', currency_exchanges_path

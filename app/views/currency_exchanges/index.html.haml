@@ -1,0 +1,31 @@
+%h1 Listing currency_exchanges
+
+%table
+  %tr
+    %th Safe
+    %th Source
+    %th Source amount
+    %th Destination
+    %th Destination amount
+    %th Exchange rate
+    %th Description
+    %th
+    %th
+    %th
+
+  - @currency_exchanges.each do |currency_exchange|
+    %tr
+      %td= currency_exchange.safe
+      %td= currency_exchange.source
+      %td= currency_exchange.source_amount
+      %td= currency_exchange.destination
+      %td= currency_exchange.destination_amount
+      %td= currency_exchange.exchange_rate
+      %td= currency_exchange.description
+      %td= link_to 'Show', currency_exchange
+      %td= link_to 'Edit', edit_currency_exchange_path(currency_exchange)
+      %td= link_to 'Destroy', currency_exchange, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Currency exchange', new_currency_exchange_path
