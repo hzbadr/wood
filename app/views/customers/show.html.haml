@@ -1,3 +1,12 @@
+%b Name:
+%p= @customer.full_name
+
+%b Email
+%p= @customer.email
+
+%b Phone
+%p= @customer.phone
+
 = link_to 'Edit', edit_customer_path(@customer)
 \|
 = link_to 'Back', customers_path
