@@ -8,7 +8,7 @@
 
   .form-group
     = f.label :category_id
-    = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @product.category_id), {include_blank: true}, class: 'form-control'
+    = f.select :category_id, nested_set_options(Category) {|i| "#{'&nbsp;&nbsp;' * i.level * 2} #{i.try(:name)}".html_safe }, {include_blank: true}, {class: 'form-control'}
   .form-group
     = f.label :warehouse_id
     = f.select :warehouse_id, options_from_collection_for_select(Warehouse.all, :id, :name, @product.warehouse_id), {include_blank: true}, class: 'form-control'
