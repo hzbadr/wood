@@ -9,3 +9,5 @@
       = link_to 'Edit', edit_bank_path(bank)
     %li
       = link_to 'Destroy', bank, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %li.divider
+      = link_to 'New Payment', new_polymorphic_path([bank, :transaction])

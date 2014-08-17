@@ -1,4 +1,4 @@
-%h1 Listing transactions
+%h1 Listing Transactions
 
 .panel.panel-primary
   .panel-heading
@@ -20,6 +20,7 @@
             %th Amount
             %th Source
             %th Destination
+            %th Currency
             %th Date
             %th
 
@@ -28,6 +29,7 @@
               %td= transaction.amount
               %td= transaction.source.name
               %td= transaction.destination.name
+              %td= transaction.currency.name
               %td= transaction.date
               %td= render 'actions', transaction: transaction
 

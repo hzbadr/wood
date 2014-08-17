@@ -2,6 +2,9 @@ module CustomerSupplier
   extend ActiveSupport::Concern
   
   included do
+    has_many :source_transactions, as: :source, class_name: 'Transaction'
+    has_many :destination_transactions, as: :source, class_name: 'Transaction'
+
     before_validation :set_user_name, if: ->(u){u.username.blank?}
     
     def password_required?

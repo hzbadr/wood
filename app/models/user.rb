@@ -12,8 +12,10 @@ class User < ActiveRecord::Base
       [Arel::Nodes::NamedFunction.new('concat_ws',
         [' ', parent.table[:first_name], parent.table[:last_name]])])
   end
-  
+
   def full_name
     [first_name, last_name].compact.join(' ')
   end
+
+  alias_method :name, :full_name
 end
