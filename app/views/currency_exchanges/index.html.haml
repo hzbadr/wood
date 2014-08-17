@@ -1,31 +1,41 @@
 %h1 Listing currency_exchanges
 
-%table
-  %tr
-    %th Safe
-    %th Source
-    %th Source amount
-    %th Destination
-    %th Destination amount
-    %th Exchange rate
-    %th Description
-    %th
-    %th
-    %th
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-6
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              = f.search_field :name_cont, class: 'form-control', placeholder: 'Serach...'
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
 
-  - @currency_exchanges.each do |currency_exchange|
-    %tr
-      %td= currency_exchange.safe
-      %td= currency_exchange.source
-      %td= currency_exchange.source_amount
-      %td= currency_exchange.destination
-      %td= currency_exchange.destination_amount
-      %td= currency_exchange.exchange_rate
-      %td= currency_exchange.description
-      %td= link_to 'Show', currency_exchange
-      %td= link_to 'Edit', edit_currency_exchange_path(currency_exchange)
-      %td= link_to 'Destroy', currency_exchange, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  .panel-body
+    .row
+      .col-xs-12
+        %table.table.table-striped.table-bordered.table-hover
+          %tr
+            %th Safe
+            %th Source
+            %th Source amount
+            %th Destination
+            %th Destination amount
+            %th Exchange rate
+            %th Description
+            %th
 
-%br
+          - @currency_exchanges.each do |currency_exchange|
+            %tr
+              %td= currency_exchange.safe
+              %td= currency_exchange.source
+              %td= currency_exchange.source_amount
+              %td= currency_exchange.destination
+              %td= currency_exchange.destination_amount
+              %td= currency_exchange.exchange_rate
+              %td= currency_exchange.description
+              %td= render 'actions', currency_exchange: currency_exchange
+
 
 = link_to 'New Currency exchange', new_currency_exchange_path
