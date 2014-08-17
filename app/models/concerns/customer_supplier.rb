@@ -2,8 +2,8 @@ module CustomerSupplier
   extend ActiveSupport::Concern
   
   included do
-    has_many :source_transactions, as: :source, class_name: 'Transaction', before_add: :update_source
-    has_many :destination_transactions, as: :source, class_name: 'Transaction', before_add: :update_destination
+    has_many :source_transactions, as: :source, class_name: 'Transaction', after_add: :update_source
+    has_many :destination_transactions, as: :source, class_name: 'Transaction', after_add: :update_destination
 
     before_validation :set_user_name, if: ->(u){u.username.blank?}
 
@@ -46,11 +46,11 @@ module CustomerSupplier
     end
 
     def update_source(record)
-      self.total_paid += record.amount unless record.new_record?
+      update(total_paid: self.total_paid + record.amount) unless record.amount.nil?
     end
 
     def update_destination(record)
-      self.total_paid -= record.amount unless record.new_record?
+      update(total_paid: self.total_paid - record.amount) unless record.amount.nil?
     end
   end
 end
