@@ -1,6 +1,9 @@
-%h1 Editing currency_exchange
-
-= render 'form'
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit #{@currency_exchange.name}
+    .panel-body
+      = render 'form'
 
 = link_to 'Show', @currency_exchange
 \|

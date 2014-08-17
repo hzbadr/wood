@@ -1,7 +1,10 @@
-%h1 Editing line_item
-
-= render 'form'
-
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit #{@line_item.full_name}
+    .panel-body
+      = render 'form'
+      
 = link_to 'Show', @line_item
 \|
 = link_to 'Back', line_items_path

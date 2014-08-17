@@ -1,6 +1,9 @@
-%h1 Editing transaction
-
-= render 'form'
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit Transaction
+    .panel-body
+      = render 'form'
 
 = link_to 'Show', polymorphic_path([@source, @transaction])
 \|
