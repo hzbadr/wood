@@ -6,26 +6,27 @@
         - @currency_exchange.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :safe
-    = f.text_field :safe
-  .field
+    = f.text_field :safe, class: 'form-control'
+  .form-group
     = f.label :source
-    = f.text_field :source
-  .field
+    = f.text_field :source, class: 'form-control'
+  .form-group
     = f.label :source_amount
-    = f.text_field :source_amount
-  .field
+    = f.text_field :source_amount, class: 'form-control'
+  .form-group
     = f.label :destination
-    = f.text_field :destination
-  .field
+    = f.text_field :destination, class: 'form-control'
+  .form-group
     = f.label :destination_amount
-    = f.text_field :destination_amount
-  .field
+    = f.text_field :destination_amount, class: 'form-control'
+  .form-group
     = f.label :exchange_rate
-    = f.text_field :exchange_rate
-  .field
+    = f.text_field :exchange_rate, class: 'form-control'
+  .form-group
     = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+    = f.text_area :description, class: 'form-control'
+  .actions.form-group
+    = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Cancel', currencies_path, class: 'btn btn-outline btn-warning cancel'

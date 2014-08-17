@@ -24,3 +24,4 @@
     = f.date_field :date, class: 'form-control'
   .actions
     = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Cancel', polymorphic_path([@source, @transaction]), class: 'btn btn-outline btn-warning cancel'

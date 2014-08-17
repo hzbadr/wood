@@ -26,3 +26,4 @@
     = f.select :payment_method_id, options_from_collection_for_select(PaymentMethod.all, :id, :name, @payment.payment_method_id), {include_blank: true}, class: 'form-control'
   .actions
     = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Cancel', payments_path, class: 'btn btn-outline btn-warning cancel'

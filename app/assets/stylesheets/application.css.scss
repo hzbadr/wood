@@ -85,3 +85,9 @@ select.date-select{
 th.actions-column{
   width: 10%;
 }
+.cancel a{
+  color: #f0ad4e;
+}
+.cancel:hover a{
+  color: #fff !important;
+}

@@ -9,5 +9,6 @@
   .form-group
     = f.label :name
     = f.text_field :name, class: 'form-control'
-  .actions
+  .actions.form-group
     = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Cancel', saves_path, class: 'btn btn-outline btn-warning cancel'

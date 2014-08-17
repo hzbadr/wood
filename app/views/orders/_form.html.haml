@@ -28,3 +28,4 @@
       = link_to_add_fields "Add Item", f, :line_items
   .actions.form-group
     = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Cancel', orders_path, class: 'btn btn-outline btn-warning cancel'
