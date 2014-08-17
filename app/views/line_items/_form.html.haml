@@ -6,21 +6,21 @@
         - @line_item.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :product_id
-    = f.text_field :product_id
-  .field
+    = f.select :product_id, options_from_collection_for_select(Product.all, :id, :name) , {include_blank: true}, class: 'form-control'
+  .form-group
     = f.label :quantity
-    = f.text_field :quantity
-  .field
+    = f.text_field :quantity, class: 'form-control'
+  .form-group
     = f.label :price
-    = f.text_field :price
-  .field
+    = f.text_field :price, class: 'form-control'
+  .form-group
     = f.label :cost_price
-    = f.text_field :cost_price
-  .field
-    = f.label :order
-    = f.text_field :order
-  .actions
+    = f.text_field :cost_price, class: 'form-control'
+  -# .form-group
+  -#   = f.label :order
+  -#   = f.text_field :order, class: 'form-control'
+  .actions.form-group
     = f.submit 'Save'
     = link_to 'Cancel', line_items_path, class: 'btn btn-outline btn-default cancel'

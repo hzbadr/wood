@@ -22,6 +22,6 @@
   .form-group
     = f.label :date
     = f.date_field :date, class: 'form-control'
-  .actions
+  .actions.form-group
     = f.submit 'Save', class: 'btn btn-primary'
     = link_to 'Cancel', polymorphic_path([@source, @transaction]), class: 'btn btn-outline btn-default cancel'

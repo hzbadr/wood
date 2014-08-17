@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20140816104138) do
   create_table "categories", force: true do |t|
     t.string   "name"
     t.integer  "parent_id"
+    t.text     "description"
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140816104138) do
   add_index "currency_exchanges", ["source_id"], name: "index_currency_exchanges_on_source_id", using: :btree
 
   create_table "line_items", force: true do |t|
-    t.integer  "variant_id"
+    t.integer  "product_id"
     t.decimal  "quantity",   precision: 8, scale: 2
     t.decimal  "price",      precision: 8, scale: 2
     t.decimal  "cost_price", precision: 8, scale: 2
@@ -59,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140816104138) do
   end
 
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
-  add_index "line_items", ["variant_id"], name: "index_line_items_on_variant_id", using: :btree
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
 
   create_table "orders", force: true do |t|
     t.string   "number"
@@ -98,11 +99,18 @@ ActiveRecord::Schema.define(version: 20140816104138) do
   add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
   create_table "products", force: true do |t|
-    t.string   "name"
-    t.text     "description"
+    t.decimal  "weight",      precision: 8, scale: 2
+    t.decimal  "width",       precision: 8, scale: 2
+    t.decimal  "height",      precision: 8, scale: 2
+    t.decimal  "depth",       precision: 8, scale: 2
+    t.integer  "category_id"
+    t.decimal  "cost_price",  precision: 8, scale: 2
+    t.decimal  "price",       precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
   create_table "saves", force: true do |t|
     t.string   "name"
@@ -114,25 +122,25 @@ ActiveRecord::Schema.define(version: 20140816104138) do
 
   create_table "stock_transfers", force: true do |t|
     t.integer  "source_id"
-    t.integer  "variant_id"
+    t.integer  "product_id"
     t.integer  "quantity"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "stock_transfers", ["product_id"], name: "index_stock_transfers_on_product_id", using: :btree
   add_index "stock_transfers", ["source_id"], name: "index_stock_transfers_on_source_id", using: :btree
-  add_index "stock_transfers", ["variant_id"], name: "index_stock_transfers_on_variant_id", using: :btree
 
   create_table "stocks", force: true do |t|
-    t.integer  "variant_id"
+    t.integer  "product_id"
     t.decimal  "quantity",   precision: 8, scale: 2
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "stocks", ["variant_id"], name: "index_stocks_on_variant_id", using: :btree
+  add_index "stocks", ["product_id"], name: "index_stocks_on_product_id", using: :btree
 
   create_table "transactions", force: true do |t|
     t.decimal  "amount",           precision: 10, scale: 0
@@ -169,19 +177,5 @@ ActiveRecord::Schema.define(version: 20140816104138) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "variants", force: true do |t|
-    t.decimal  "weight",     precision: 8, scale: 2
-    t.decimal  "width",      precision: 8, scale: 2
-    t.decimal  "height",     precision: 8, scale: 2
-    t.decimal  "depth",      precision: 8, scale: 2
-    t.integer  "product_id"
-    t.decimal  "cost_price", precision: 8, scale: 2
-    t.decimal  "price",      precision: 8, scale: 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "variants", ["product_id"], name: "index_variants_on_product_id", using: :btree
 
 end

@@ -12,6 +12,6 @@
   .form-group
     = f.label :account_number
     = f.text_field :account_number, class: 'form-control'
-  .actions
+  .actions.form-group
     = f.submit 'Save', class: 'btn btn-primary'
     = link_to 'Cancel', banks_path, class: 'btn btn-outline btn-default cancel'
