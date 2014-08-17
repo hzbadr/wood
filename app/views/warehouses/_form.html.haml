@@ -6,17 +6,18 @@
         - @warehouse.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .fom-group
     = f.label :name
-    = f.text_field :name
-  .field
+    = f.text_field :name, class: 'form-control'
+  .fom-group
     = f.label :address
-    = f.text_area :address
-  .field
+    = f.text_area :address, class: 'form-control'
+  .fom-group
     = f.label :phone
-    = f.text_field :phone
-  .field
+    = f.text_field :phone, class: 'form-control'
+  .fom-group
     = f.label :size
-    = f.text_field :size
-  .actions
-    = f.submit 'Save'
+    = f.text_field :size, class: 'form-control'
+  .actions.form-group
+    = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Cancel', warehouses_path, class: 'btn btn-outline btn-default cancel'
