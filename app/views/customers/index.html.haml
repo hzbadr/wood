@@ -1,5 +1,7 @@
-= link_to 'New Customer', new_customer_path, class: 'btn btn-outline btn-primary pull-right new-instance'
-%h1 Listing Customers
+%h1 
+  Listing Customers
+  = link_to 'New Customer', new_customer_path, class: 'btn btn-outline btn-primary pull-right new-instance'
+
 .panel.panel-primary
   .panel-heading
     .row
@@ -31,7 +33,7 @@
               %td= customer.email
               %td= customer.phone
               %td= customer.total_amount ||= 0
-              %td= customer.paid_amount ||= 0
-              %td= customer.total_amount - customer.paid_amount 
+              %td= customer.total_paid ||= 0
+              %td= customer.total_amount - customer.total_paid 
               %td= render 'actions', customer: customer
 

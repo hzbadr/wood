@@ -99,20 +99,18 @@ ActiveRecord::Schema.define(version: 20140817183510) do
   add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
   create_table "products", force: true do |t|
-    t.decimal  "weight",       precision: 8, scale: 2
-    t.decimal  "width",        precision: 8, scale: 2
-    t.decimal  "height",       precision: 8, scale: 2
-    t.decimal  "depth",        precision: 8, scale: 2
+    t.decimal  "weight",      precision: 8, scale: 2
+    t.decimal  "width",       precision: 8, scale: 2
+    t.decimal  "height",      precision: 8, scale: 2
+    t.decimal  "depth",       precision: 8, scale: 2
     t.integer  "category_id"
-    t.integer  "warehouse_id"
-    t.decimal  "cost_price",   precision: 8, scale: 2
-    t.decimal  "price",        precision: 8, scale: 2
+    t.decimal  "cost_price",  precision: 8, scale: 2
+    t.decimal  "price",       precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
-  add_index "products", ["warehouse_id"], name: "index_products_on_warehouse_id", using: :btree
 
   create_table "saves", force: true do |t|
     t.string   "name"
@@ -125,6 +123,7 @@ ActiveRecord::Schema.define(version: 20140817183510) do
   create_table "stock_transfers", force: true do |t|
     t.integer  "source_id"
     t.integer  "product_id"
+    t.integer  "warehouse_id"
     t.integer  "quantity"
     t.date     "date"
     t.datetime "created_at"
@@ -133,6 +132,7 @@ ActiveRecord::Schema.define(version: 20140817183510) do
 
   add_index "stock_transfers", ["product_id"], name: "index_stock_transfers_on_product_id", using: :btree
   add_index "stock_transfers", ["source_id"], name: "index_stock_transfers_on_source_id", using: :btree
+  add_index "stock_transfers", ["warehouse_id"], name: "index_stock_transfers_on_warehouse_id", using: :btree
 
   create_table "stocks", force: true do |t|
     t.integer  "product_id"
@@ -157,18 +157,20 @@ ActiveRecord::Schema.define(version: 20140817183510) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "username",               default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                           default: "", null: false
+    t.string   "username",                                        default: "", null: false
+    t.string   "encrypted_password",                              default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "type"
+    t.decimal  "total_paid",             precision: 10, scale: 0
+    t.decimal  "total_amount",           precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "first_name"

@@ -13,6 +13,9 @@
     = f.label :product_id
     = f.select :product_id, options_from_collection_for_select(Product.all, :id, :name, @stock_transfer.product_id), {include_blank: true}, {class: 'form-control'}
   .form-group
+    = f.label :warehouse_id
+    = f.select :warehouset_id, options_from_collection_for_select(Warehouse.all, :id, :name, @stock_transfer.warehouse_id), {include_blank: true}, {class: 'form-control'}
+  .form-group
     = f.label :quantity
     = f.number_field :quantity, class: 'form-control'
   .form-group

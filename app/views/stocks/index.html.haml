@@ -1,5 +1,7 @@
-= link_to 'New Stock', new_stock_path, class: 'btn btn-outline btn-primary pull-right new-instance'
-%h1 Listing Stocks
+%h1 
+  Listing Stocks
+  = link_to 'New Stock', new_stock_path, class: 'btn btn-outline btn-primary pull-right new-instance'
+
 .panel.panel-primary
   .panel-heading
     .row
@@ -7,7 +9,7 @@
         = search_form_for(@search, class: 'form search') do |f|
           .sidebar-search
             .input-group.custom-search-form
-              = f.search_field :product_name_cont, class: 'form-control', placeholder: 'Serach...'
+              = f.search_field :product_category_name_cont, class: 'form-control', placeholder: 'Serach...'
               %span.input-group-btn
                 %button.btn.btn-default{:type => "submit"}
                   %i.fa.fa-search

@@ -1,6 +1,7 @@
-= link_to 'New Supplier', new_supplier_path, class: 'btn btn-outline btn-primary pull-right new-instance'
+%h1 
+  Listing Suppliers
+  = link_to 'New Supplier', new_supplier_path, class: 'btn btn-outline btn-primary pull-right new-instance'
 
-%h1 Listing Suppliers
 
 .panel.panel-primary
   .panel-heading
@@ -22,6 +23,9 @@
             %th Name
             %th email
             %th phone
+            %th Total Amount
+            %th Total Paid
+            %th Remaining Amount
             %th.actions-column
 
           - @suppliers.each do |supplier|
@@ -29,5 +33,8 @@
               %td= supplier.full_name
               %td= supplier.email
               %td= supplier.phone
+              %td= supplier.total_amount ||= 0
+              %td= supplier.total_paid ||= 0
+              %td= supplier.total_amount - supplier.total_paid 
               %td= render 'actions', supplier: supplier
 

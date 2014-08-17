@@ -26,8 +26,7 @@ warehouses = Warehouse.pluck(:id)
 categories.each do |p|
   (1..50).to_a.sample(10).each do |i|  
     Product.create(weight: rand(1..10), height: rand(1..10), width: rand(1..10), 
-                   depth: rand(1..10), category_id: p.id, warehouse_id: warehouses.sample,
-                   cost_price: i*rand(1..5), price: i*10)
+                   depth: rand(1..10), category_id: p.id, cost_price: i*rand(1..5), price: i*10)
   end
 end
 
@@ -35,23 +34,27 @@ names = %w(Ahmed Mohamed Ali Samir Hassan Saleh Karim Tamer Hany Yasser)
 (1..20).to_a.each do |i|
   first_name = names.sample
   last_name = names.sample
-  Customer.create(first_name: first_name, last_name: last_name, email: "#{first_name}_#{i}@#{last_name}.com", address: "Address #{last_name}")
+  Customer.create(first_name: first_name, last_name: last_name, email: "#{first_name}_#{i}@#{last_name}.com", 
+                  address: "Address #{last_name}", total_paid: (1..10000).to_a.sample , total_amount: (1..100000).to_a.sample)
 end
 
 (1..20).to_a.each do |i|
   first_name = names.sample
   last_name = names.sample
-  Supplier.create(first_name: first_name, last_name: last_name, email: "#{first_name}_#{i}@#{last_name}.com", address: "Address #{last_name}")
+  Supplier.create(first_name: first_name, last_name: last_name, email: "#{first_name}_#{i}@#{last_name}.com", 
+                  address: "Address #{last_name}", total_paid: (1..10000).to_a.sample , total_amount: (1..100000).to_a.sample)
 end
 
-products = Product.all
+suppilers = Supplier.pluck(:id)
 
-customers = Customer.all
+products = Product.pluck(:id)
+
+customers = Customer.pluck(:id)
 
 (1..30).to_a.each do |x|
-  order = Order.create(customer_id: customers.sample.id, created_by_id: 2)
+  order = Order.create(customer_id: customers.sample, created_by_id: 2)
   (1..5).to_a.each do |i|
-    order.line_items << LineItem.create(product_id: products.sample.id, quantity: rand(1..10)*i)
+    order.line_items << LineItem.create(product_id: products.sample, quantity: rand(1..10)*i)
   end
 end
 
@@ -59,6 +62,10 @@ methods = (1..4).to_a.collect do |i|
   PaymentMethod.create(name: "Payment #{i}")
 end
 
+# (1..100).to_a.each do |i|
+#   Payment.create(amount: i*rand(1..100), user_id: customers.sample, payment_method_id: methods.sample.id, state: 'paid', date: DateTime.now.advance(days: -rand(1..60)))
+# end
+
 (1..100).to_a.each do |i|
-  Payment.create(amount: i*rand(1..100), user_id: customers.sample.id, payment_method_id: methods.sample.id, state: 'paid', date: DateTime.now.advance(days: -rand(1..60)))
+  StockTransfer.create(source_id: suppilers.sample, warehouse_id: warehouses.sample, quantity: (1..1000).to_a.sample, date: DateTime.now.advance(days: -i/4))
 end

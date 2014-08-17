@@ -8,10 +8,11 @@ show_destination = ->
   $("#"+id).prop('disabled', false).show().parent().show()
 
 ready = ->
-  show_destination()
-  $('#transaction_destination_type').change ->
+  if $('#transaction_destination_type').length > 0
     show_destination()
+    $('#transaction_destination_type').change ->
+      show_destination()
     
-if $('#transaction_destination_type').length > 0
-  $(document).ready(ready)
-  $(document).on('page:load', ready)
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
