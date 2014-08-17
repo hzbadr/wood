@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @warehouse.name
+%p
+  %b Address:
+  = @warehouse.address
+%p
+  %b Phone:
+  = @warehouse.phone
+%p
+  %b Size:
+  = @warehouse.size
+
+= link_to 'Edit', edit_warehouse_path(@warehouse)
+\|
+= link_to 'Back', warehouses_path

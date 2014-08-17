@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration
       t.decimal :height, precision: 8, scale: 2
       t.decimal :depth, precision: 8, scale: 2
       t.references :category, index: true
+      t.references :warehouse, index: true
       t.decimal :cost_price, precision: 8, scale: 2
       t.decimal :price, precision: 8, scale: 2
 

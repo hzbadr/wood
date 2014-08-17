@@ -17,9 +17,17 @@ Category.create(name: 'Category 5')
 
 categories = Category.all
 
+(1..3).to_a.each do |i|
+  Warehouse.create(name: "Warehouse #{{i}}", size: "100")
+end
+
+warhouses = Warehouse.pluck(:id)
+
 categories.each do |p|
   (1..50).to_a.sample(10).each do |i|  
-    Product.create(weight: rand(1..10), height: rand(1..10), width: rand(1..10), depth: rand(1..10), category_id: p.id, cost_price: i*rand(1..5), price: i*10)
+    Product.create(weight: rand(1..10), height: rand(1..10), width: rand(1..10), 
+                   depth: rand(1..10), category_id: p.id, warhouse_id: warhouses.sample,
+                   cost_price: i*rand(1..5), price: i*10)
   end
 end
 

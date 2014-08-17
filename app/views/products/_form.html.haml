@@ -7,6 +7,12 @@
           %li= msg
 
   .form-group
+    = f.label :category_id
+    = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @product.category_id), {include_blank: true}, class: 'form-control'
+  .form-group
+    = f.label :warehouse_id
+    = f.select :warehouse_id, options_from_collection_for_select(Warehouse.all, :id, :name, @product.warehouse_id), {include_blank: true}, class: 'form-control'
+  .form-group
     = f.label :weight
     = f.text_field :weight, class: 'form-control'
   .form-group
@@ -18,9 +24,6 @@
   .form-group
     = f.label :depth
     = f.text_field :depth, class: 'form-control'
-  .form-group
-    = f.label :category_id
-    = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @product.category_id), {include_blank: true}, class: 'form-control'
   .form-group
     = f.label :cost_price
     = f.text_field :cost_price, class: 'form-control'

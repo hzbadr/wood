@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :warehouses
+
   resources :transactions
 
   resources :banks do
