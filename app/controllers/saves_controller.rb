@@ -4,7 +4,7 @@ class SavesController < ApplicationController
   # GET /saves
   # GET /saves.json
   def index
-    @search = Safe.search(params[:q])
+    @search = Safe.safe_only.search(params[:q])
     @saves = @search.result
   end
 
@@ -29,7 +29,7 @@ class SavesController < ApplicationController
 
     respond_to do |format|
       if @safe.save
-        format.html { redirect_to @safe, notice: 'Safe was successfully created.' }
+        format.html { redirect_to saves_path, notice: 'Safe was successfully created.' }
         format.json { render :show, status: :created, location: @safe }
       else
         format.html { render :new }
@@ -43,9 +43,10 @@ class SavesController < ApplicationController
   def update
     respond_to do |format|
       if @safe.update(safe_params)
-        format.html { redirect_to @safe, notice: 'Safe was successfully updated.' }
+        format.html { redirect_to saves_path, notice: 'Safe was successfully updated.' }
         format.json { render :show, status: :ok, location: @safe }
       else
+        binding.pry
         format.html { render :edit }
         format.json { render json: @safe.errors, status: :unprocessable_entity }
       end
