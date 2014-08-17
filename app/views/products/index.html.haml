@@ -1,5 +1,4 @@
-%h1 Listing Products
-
+%h1 Listing Variants
 .panel.panel-primary
   .panel-heading
     .row
@@ -7,7 +6,7 @@
         = search_form_for(@search, class: 'form search') do |f|
           .sidebar-search
             .input-group.custom-search-form
-              = f.search_field :name_cont, class: 'form-control', placeholder: 'Serach...'
+              = f.search_field :category_name_cont, class: 'form-control', placeholder: 'Serach...'
               %span.input-group-btn
                 %button.btn.btn-default{:type => "submit"}
                   %i.fa.fa-search
@@ -17,15 +16,24 @@
       .col-xs-12
         %table.table.table-striped.table-bordered.table-hover.data-table
           %tr
-            %th Name
-            %th Description
+            %th Weight
+            %th Width
+            %th Height
+            %th Depth
+            %th Product
+            %th Cost price
+            %th Price
             %th.actions-column
 
           - @products.each do |product|
             %tr
-              %td= product.name
-              %td= product.description
+              %td= product.weight
+              %td= product.width
+              %td= product.height
+              %td= product.depth
+              %td= product.category.name
+              %td= product.cost_price
+              %td= product.price
               %td= render 'actions', product: product
 
-
-= link_to 'New Product', new_product_path
+= link_to 'New Variant', new_product_path

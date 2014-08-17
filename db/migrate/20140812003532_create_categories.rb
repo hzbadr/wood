@@ -3,6 +3,7 @@ class CreateCategories < ActiveRecord::Migration
     create_table :categories do |t|
       t.string :name
       t.references :parent, index: true
+      t.text :description
       t.integer :lft
       t.integer :rgt
       t.integer :depth
