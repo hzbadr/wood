@@ -18,7 +18,7 @@ Category.create(name: 'Category 5')
 categories = Category.all
 
 (1..3).to_a.each do |i|
-  Warehouse.create(name: "Warehouse #{{i}}", size: "100")
+  Warehouse.create(name: "Warehouse #{i}", size: "100")
 end
 
 warhouses = Warehouse.pluck(:id)
