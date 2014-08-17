@@ -3,6 +3,7 @@ class CreateStockTransfers < ActiveRecord::Migration
     create_table :stock_transfers do |t|
       t.references :source, index: true
       t.references :product, index: true
+      t.references :warehouse, index: true
       t.integer :quantity
       t.date :date
 

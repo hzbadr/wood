@@ -70,6 +70,6 @@ class StockTransfersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_transfer_params
-      params.require(:stock_transfer).permit(:source_id, :product_id, :quantity, :date)
+      params.require(:stock_transfer).permit(:source_id, :warehouse_id, :product_id, :quantity, :date)
     end
 end
