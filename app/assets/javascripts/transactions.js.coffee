@@ -11,6 +11,7 @@ ready = ->
   show_destination()
   $('#transaction_destination_type').change ->
     show_destination()
-
-$(document).ready(ready)
-$(document).on('page:load', ready)
+    
+if $('#transaction_destination_type').length > 0
+  $(document).ready(ready)
+  $(document).on('page:load', ready)

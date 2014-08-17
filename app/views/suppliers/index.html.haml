@@ -1,4 +1,7 @@
+= link_to 'New Supplier', new_supplier_path, class: 'btn btn-outline btn-primary pull-right new-instance'
+
 %h1 Listing Suppliers
+
 .panel.panel-primary
   .panel-heading
     .row
@@ -28,4 +31,3 @@
               %td= supplier.phone
               %td= render 'actions', supplier: supplier
 
-= link_to 'New Supplier', new_supplier_path

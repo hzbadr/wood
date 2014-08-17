@@ -1,3 +1,4 @@
+= link_to 'New Payment', new_order_path(@order), class: 'btn btn-outline btn-primary pull-right new-instance'
 %h1 Listing Payments
 .panel.panel-primary
   .panel-heading
@@ -45,4 +46,3 @@
               %td= link_to 'Destroy', order_payment_path(@order, payment), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
-= link_to 'New Payment', new_order_path(@order)

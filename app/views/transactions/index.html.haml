@@ -1,3 +1,4 @@
+= link_to 'New Transaction', new_polymorphic_path([@source, :transaction]), class: 'btn btn-outline btn-primary pull-right new-instance'
 %h1 Listing Transactions
 
 .panel.panel-primary
@@ -33,4 +34,3 @@
               %td= transaction.date
               %td= render 'actions', transaction: transaction
 
-= link_to 'New Transaction', new_polymorphic_path([@source, :transaction])

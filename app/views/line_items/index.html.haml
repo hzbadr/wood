@@ -1,4 +1,6 @@
-%h1 Listing line_items
+= link_to 'New Line item', new_line_item_path, class: 'btn btn-outline btn-primary pull-right new-instance'
+
+%h1 Listing Line Items
 
 .panel.panel-primary
   .panel-heading
@@ -34,4 +36,3 @@
               %td= render 'actions', line_item: line_item
 
 
-= link_to 'New Line item', new_line_item_path
