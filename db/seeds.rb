@@ -21,12 +21,12 @@ categories = Category.all
   Warehouse.create(name: "Warehouse #{i}", size: "100")
 end
 
-warhouses = Warehouse.pluck(:id)
+warehouses = Warehouse.pluck(:id)
 
 categories.each do |p|
   (1..50).to_a.sample(10).each do |i|  
     Product.create(weight: rand(1..10), height: rand(1..10), width: rand(1..10), 
-                   depth: rand(1..10), category_id: p.id, warhouse_id: warhouses.sample,
+                   depth: rand(1..10), category_id: p.id, warehouse_id: warehouses.sample,
                    cost_price: i*rand(1..5), price: i*10)
   end
 end
