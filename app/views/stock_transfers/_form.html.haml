@@ -10,8 +10,8 @@
     = f.label :source_id
     = f.select :source_id, options_from_collection_for_select(Supplier.all, :id, :full_name, @stock_transfer.source_id), {include_blank: true}, {class: 'form-control'} 
   .form-group
-    = f.label :variant_id
-    = f.select :variant_id, options_from_collection_for_select(Variant.all, :id, :name, @stock_transfer.variant_id), {include_blank: true}, {class: 'form-control'}
+    = f.label :product_id
+    = f.select :product_id, options_from_collection_for_select(Product.all, :id, :name, @stock_transfer.product_id), {include_blank: true}, {class: 'form-control'}
   .form-group
     = f.label :quantity
     = f.number_field :quantity, class: 'form-control'

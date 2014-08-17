@@ -1,7 +1,7 @@
 class CreateStocks < ActiveRecord::Migration
   def change
     create_table :stocks do |t|
-      t.references :variant, index: true
+      t.references :product, index: true
       t.decimal :quantity, precision: 8, scale: 2
       t.date :date
 

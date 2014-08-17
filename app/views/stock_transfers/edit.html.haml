@@ -1,7 +1,7 @@
 .col-xs-6.col-xs-offset-2
   .panel.panel-primary
     .panel-heading
-      %h4 Edit #{@stock_transfer.source.full_name} - #{@stock_transfer.variant.name}
+      %h4 Edit #{@stock_transfer.source.full_name} - #{@stock_transfer.product.name}
     .panel-body
       = render 'form'
 

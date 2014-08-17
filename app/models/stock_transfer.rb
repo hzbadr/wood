@@ -1,4 +1,4 @@
 class StockTransfer < ActiveRecord::Base
   belongs_to :source, class_name: 'Supplier'
-  belongs_to :variant
+  belongs_to :product
 end

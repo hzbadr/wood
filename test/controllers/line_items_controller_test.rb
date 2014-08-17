@@ -18,7 +18,7 @@ class LineItemsControllerTest < ActionController::TestCase
 
   test "should create line_item" do
     assert_difference('LineItem.count') do
-      post :create, line_item: { cost_price: @line_item.cost_price, order_id: @line_item.order_id, price: @line_item.price, quantity: @line_item.quantity, variant_id: @line_item.variant_id }
+      post :create, line_item: { cost_price: @line_item.cost_price, order_id: @line_item.order_id, price: @line_item.price, quantity: @line_item.quantity, product1_id: @line_item.product_id }
     end
 
     assert_redirected_to line_item_path(assigns(:line_item))
@@ -35,7 +35,7 @@ class LineItemsControllerTest < ActionController::TestCase
   end
 
   test "should update line_item" do
-    patch :update, id: @line_item, line_item: { cost_price: @line_item.cost_price, order_id: @line_item.order_id, price: @line_item.price, quantity: @line_item.quantity, variant_id: @line_item.variant_id }
+    patch :update, id: @line_item, line_item: { cost_price: @line_item.cost_price, order_id: @line_item.order_id, price: @line_item.price, quantity: @line_item.quantity, product_id: @line_item.product_id }
     assert_redirected_to line_item_path(assigns(:line_item))
   end
 

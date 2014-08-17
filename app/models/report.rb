@@ -34,11 +34,11 @@ class Report < ActiveRecord::Base
     end
 
     def top_products
-      LineItem.group('variant_id').select('id, SUM(price) as total_sales').order('total_sales DESC').limit(10)
+      LineItem.group('product_id').select('id, SUM(price) as total_sales').order('total_sales DESC').limit(10)
     end
 
     def low_products_stock
-      LineItem.group('variant_id').select('id, SUM(price) as total_sales').order('total_sales ASC').limit(10)
+      LineItem.group('product_id').select('id, SUM(price) as total_sales').order('total_sales ASC').limit(10)
     end
 
   end

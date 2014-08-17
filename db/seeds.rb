@@ -15,13 +15,11 @@ Category.create(name: 'Category 3', parent_id: 2)
 Category.create(name: 'Category 4', parent_id: 1)
 Category.create(name: 'Category 5')
 
-products = (1..10).to_a.collect do |i|
-  Product.create(name: "Product ##{i}", description: "desc #{i}")
-end
+categories = Category.all
 
-products.each do |p|
+categories.each do |p|
   (1..50).to_a.sample(10).each do |i|  
-    Variant.create(weight: rand(1..10), height: rand(1..10), width: rand(1..10), depth: rand(1..10), product_id: p.id, cost_price: i*rand(1..5), price: i*10)
+    Product.create(weight: rand(1..10), height: rand(1..10), width: rand(1..10), depth: rand(1..10), product_id: p.id, cost_price: i*rand(1..5), price: i*10)
   end
 end
 
@@ -38,14 +36,14 @@ end
   Supplier.create(first_name: first_name, last_name: last_name, email: "#{first_name}_#{i}@#{last_name}.com", address: "Address #{last_name}")
 end
 
-variants = Variant.all
+products = Product.all
 
 customers = Customer.all
 
 (1..30).to_a.each do |x|
   order = Order.create(customer_id: customers.sample.id, created_by_id: 2)
   (1..5).to_a.each do |i|
-    order.line_items << LineItem.create(variant_id: variants.sample.id, quantity: rand(1..10)*i)
+    order.line_items << LineItem.create(product_id: products.sample.id, quantity: rand(1..10)*i)
   end
 end
 

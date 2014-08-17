@@ -6,7 +6,7 @@
         = search_form_for(@search, class: 'form search') do |f|
           .sidebar-search
             .input-group.custom-search-form
-              = f.search_field :variant_product_name_cont, class: 'form-control', placeholder: 'Serach...'
+              = f.search_field :product_name_cont, class: 'form-control', placeholder: 'Serach...'
               %span.input-group-btn
                 %button.btn.btn-default{:type => "submit"}
                   %i.fa.fa-search
@@ -16,14 +16,14 @@
       .col-xs-12
         %table.table.table-striped.table-bordered.table-hover.data-table
           %tr
-            %th Variant
+            %th Product
             %th Quantity
             %th Date
             %th.actions-column
 
           - @stocks.each do |stock|
             %tr
-              %td= stock.variant.name
+              %td= stock.product.name
               %td= stock.quantity
               %td= stock.date
               %td= render 'actions', stock: stock

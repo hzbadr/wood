@@ -18,7 +18,7 @@ class StockTransfersControllerTest < ActionController::TestCase
 
   test "should create stock_transfer" do
     assert_difference('StockTransfer.count') do
-      post :create, stock_transfer: { date: @stock_transfer.date, quantity: @stock_transfer.quantity, source_id: @stock_transfer.source_id, variant_id: @stock_transfer.variant_id }
+      post :create, stock_transfer: { date: @stock_transfer.date, quantity: @stock_transfer.quantity, source_id: @stock_transfer.source_id, product_id: @stock_transfer.product_id }
     end
 
     assert_redirected_to stock_transfer_path(assigns(:stock_transfer))
@@ -35,7 +35,7 @@ class StockTransfersControllerTest < ActionController::TestCase
   end
 
   test "should update stock_transfer" do
-    patch :update, id: @stock_transfer, stock_transfer: { date: @stock_transfer.date, quantity: @stock_transfer.quantity, source_id: @stock_transfer.source_id, variant_id: @stock_transfer.variant_id }
+    patch :update, id: @stock_transfer, stock_transfer: { date: @stock_transfer.date, quantity: @stock_transfer.quantity, source_id: @stock_transfer.source_id, product_id: @stock_transfer.product_id }
     assert_redirected_to stock_transfer_path(assigns(:stock_transfer))
   end
 

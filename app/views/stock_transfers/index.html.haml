@@ -31,7 +31,7 @@
         %table.table.table-striped.table-bordered.table-hover
           %tr
             %th Source
-            %th Variant
+            %th Product
             %th Quantity
             %th Date
             %th.actions-column
@@ -39,7 +39,7 @@
           - @stock_transfers.each do |stock_transfer|
             %tr
               %td= stock_transfer.source.full_name
-              %td= stock_transfer.variant.name
+              %td= stock_transfer.product.name
               %td= stock_transfer.quantity
               %td= stock_transfer.date
               %td= render 'actions', stock_transfer: stock_transfer

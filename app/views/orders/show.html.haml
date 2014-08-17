@@ -21,7 +21,7 @@
 - @order.line_items.each do |l|
   %p
     %b Product:
-    = l.variant.name
+    = l.product.name
 
 
 = link_to 'Edit', edit_order_path(@order)

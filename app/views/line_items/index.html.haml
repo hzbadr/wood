@@ -2,7 +2,7 @@
 
 %table
   %tr
-    %th Variant
+    %th Product
     %th Quantity
     %th Price
     %th Cost price
@@ -13,7 +13,7 @@
 
   - @line_items.each do |line_item|
     %tr
-      %td= line_item.variant
+      %td= line_item.product.name
       %td= line_item.quantity
       %td= line_item.price
       %td= line_item.cost_price
