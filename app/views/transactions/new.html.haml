@@ -1,5 +1,8 @@
-%h1 New transaction
-
-= render 'form'
+.col-xs-6.col-xs-offset-2
+  .panel.panel-primary
+    .panel-heading
+      %h4 New Transaction
+    .panel-body
+      = render 'form'
 
 = link_to 'Back', polymorphic_url([@source, :transactions])

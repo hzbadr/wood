@@ -11,6 +11,14 @@ Rails.application.routes.draw do
     resources :transactions
   end
 
+  resources :customers do
+    resources :transactions
+  end
+
+  resources :suppliers do
+    resources :transactions
+  end
+
   resources :currency_exchanges
 
   resources :currencies
@@ -27,13 +35,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  resources :customers do
-    resources :payments
-  end
-
-  resources :suppliers do
-    resources :payments
-  end
 
   resources :stocks
 

@@ -7,7 +7,7 @@ class Transaction < ActiveRecord::Base
 
   validate :source_is_not_destination
 
-  DESTINATION_TYPES = [ 'Safe', 'Bank', 'Customer']
+  DESTINATION_TYPES = [ 'Safe', 'Bank', 'Customer', 'Supplier']
 
   private
     def source_is_not_destination

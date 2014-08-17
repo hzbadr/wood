@@ -11,7 +11,7 @@
     = f.text_field :amount, class: 'form-control'
   .form-group
     = f.label :destination_type
-    = f.select :destination_type, options_for_select(Transaction::DESTINATION_TYPES, @transaction.destination_type), {include_blank: true}, class: 'form-control'
+    = f.select :destination_type, options_for_select(destination_types(@transaction.source), @transaction.destination_type), {include_blank: true}, class: 'form-control'
   .form-group
     = f.label :destination_id
     = f.select :destination_id, options_from_collection_for_select(Safe.all, :id, :name, @transaction.source_id), {include_blank: true}, class: 'form-control', id: 'safe-tr'

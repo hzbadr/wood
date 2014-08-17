@@ -2,6 +2,9 @@ class Customer < User
   has_many :payments, foreign_key: :user_id
   has_many :orders
 
+  has_many :source_transactions, as: :source, class_name: 'Transaction'
+  has_many :destination_transactions, as: :source, class_name: 'Transaction'
+
   include CustomerSupplier
 
   QUERY_SELECT_FIELDS = 'users.id, users.email, users.phone, users.first_name, users.last_name'

@@ -66,10 +66,8 @@ class TransactionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_source
-      if params[:safe_id].present?
-        @source = Safe.find(params[:safe_id])
-      elsif params[:bank_id].present?
-        @source = Bank.find(params[:bank_id])
+      params.collect do |name, value|
+        @source = $1.classify.constantize.find(value) if name =~ /(.+)_id$/
       end
     end
 
