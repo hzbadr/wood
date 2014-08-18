@@ -63,10 +63,10 @@ class Order < ActiveRecord::Base
     # total is the remaining (amount - payments)
     def update_order_total
       binding.pry
-      self.total = line_items.pluck(:price).sum if self.total.nil?
+      self.total = line_items.map(&:price).sum if self.total.nil? || self.total.zero?
     end
 
     def create_transaction
-      binding.pry
+      # binding.pry
     end
 end

@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20140817183510) do
   create_table "currency_exchanges", force: true do |t|
     t.integer  "safe_id"
     t.integer  "source_id"
-    t.decimal  "source_amount",      precision: 10, scale: 0
+    t.decimal  "source_amount",      precision: 8, scale: 2
     t.integer  "destination_id"
-    t.decimal  "destination_amount", precision: 10, scale: 0
-    t.decimal  "exchange_rate",      precision: 10, scale: 0
+    t.decimal  "destination_amount", precision: 8, scale: 2
+    t.decimal  "exchange_rate",      precision: 8, scale: 2
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20140817183510) do
 
   create_table "orders", force: true do |t|
     t.string   "number"
-    t.decimal  "total",         precision: 10, scale: 0
+    t.decimal  "total",         precision: 8, scale: 2
     t.string   "state"
     t.integer  "customer_id"
     t.datetime "completed_at"
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 20140817183510) do
   add_index "stocks", ["product_id"], name: "index_stocks_on_product_id", using: :btree
 
   create_table "transactions", force: true do |t|
-    t.decimal  "amount",           precision: 10, scale: 0
+    t.decimal  "amount",           precision: 8, scale: 2
     t.integer  "currency_id"
     t.integer  "source_id"
     t.string   "source_type"
@@ -157,20 +157,20 @@ ActiveRecord::Schema.define(version: 20140817183510) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                                           default: "", null: false
-    t.string   "username",                                        default: "", null: false
-    t.string   "encrypted_password",                              default: "", null: false
+    t.string   "email",                                          default: "", null: false
+    t.string   "username",                                       default: "", null: false
+    t.string   "encrypted_password",                             default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                   default: 0,  null: false
+    t.integer  "sign_in_count",                                  default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "type"
-    t.decimal  "total_paid",             precision: 10, scale: 0
-    t.decimal  "total_amount",           precision: 10, scale: 0
+    t.decimal  "total_paid",             precision: 8, scale: 2
+    t.decimal  "total_amount",           precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "first_name"
