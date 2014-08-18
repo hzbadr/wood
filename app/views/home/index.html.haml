@@ -15,7 +15,7 @@
               - @top_remaining_customers.each do |customer|
                 %tr
                   %td= customer.full_name
-                  %td= customer.remaining ||= 0
+                  %td= customer.total_remaining ||= 0
   .col-xs-6
     .panel.panel-primary
       .panel-heading
@@ -32,7 +32,7 @@
               - @low_remaining_customers.each do |customer|
                 %tr
                   %td= customer.full_name
-                  %td= customer.remaining ||= 0
+                  %td= customer.total_remaining ||= 0
 .row
   .col-xs-6
     .panel.panel-primary
@@ -50,7 +50,25 @@
               - @top_paying_customers.each do |customer|
                 %tr
                   %td= customer.full_name
-                  %td= customer.paid_amount ||= 0
+                  %td= customer.total_payment ||= 0
+  .col-xs-6
+    .panel.panel-primary
+      .panel-heading
+        Low Payers
+
+      .panel-body
+        .row
+          .col-xs-12
+            %table.table.table-striped.table-bordered.table-hover.data-table
+              %tr
+                %th Customer Name
+                %th Total Paid
+
+              - @low_paying_customers.each do |customer|
+                %tr
+                  %td= customer.full_name
+                  %td= customer.total_payment ||= 0
+.row
   .col-xs-6
     .panel.panel-primary
       .panel-heading
@@ -68,24 +86,6 @@
                 %tr
                   %td= customer.full_name
                   %td= customer.total_amount ||= 0
-.row
-  .col-xs-6
-    .panel.panel-primary
-      .panel-heading
-        Low Payers
-
-      .panel-body
-        .row
-          .col-xs-12
-            %table.table.table-striped.table-bordered.table-hover.data-table
-              %tr
-                %th Customer Name
-                %th Total Paid
-
-              - @low_paying_customers.each do |customer|
-                %tr
-                  %td= customer.full_name
-                  %td= customer.paid_amount ||= 0
   .col-xs-6
     .panel.panel-primary
       .panel-heading
