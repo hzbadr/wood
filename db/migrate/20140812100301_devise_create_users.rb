@@ -21,8 +21,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       t.string   :type
-      t.decimal  :total_paid
-      t.decimal  :total_amount
+      t.decimal  :total_paid, precision: 8, scale: 2
+      t.decimal  :total_amount, precision: 8, scale: 2
 
       ## Confirmable
       # t.string   :confirmation_token

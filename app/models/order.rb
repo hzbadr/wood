@@ -10,10 +10,11 @@ class Order < ActiveRecord::Base
 
   before_validation :set_default_state, on: :create
 
-  after_touch :update_order_total
+  before_save :update_order_total
 
   accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:product_id] .nil?}
 
+  after_save :create_transaction
 
   CREATED, PENDING, PROCESSING, COMPLETED, CANCELED = STATES = %w(created pending processing completed canceled)
 
@@ -61,6 +62,11 @@ class Order < ActiveRecord::Base
 
     # total is the remaining (amount - payments)
     def update_order_total
-      update(total: line_items.pluck(:price).sum)
+      binding.pry
+      self.total = line_items.pluck(:price).sum if self.total.nil?
+    end
+
+    def create_transaction
+      binding.pry
     end
 end
