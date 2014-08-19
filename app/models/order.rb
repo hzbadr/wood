@@ -13,10 +13,10 @@ class Order < ActiveRecord::Base
   before_create :update_order_total
 
   after_create :update_customer_total_amount
-  
+
   after_create :update_warehouse_stock
 
-  accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:product_id] .nil?}
+  accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:stock_id] .nil?}
 
   CREATED, PENDING, PROCESSING, COMPLETED, CANCELED = STATES = %w(created pending processing completed canceled)
 
@@ -67,6 +67,7 @@ class Order < ActiveRecord::Base
     end
 
     def update_customer_total_amount
+      binding.pry
       self.customer.increase_total_amount(self.total)
     end
 

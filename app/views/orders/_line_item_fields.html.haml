@@ -1,7 +1,7 @@
 %fieldset
   .form-group
-    = f.label :product_id, 'Product'
-    = f.select :product_id, options_from_collection_for_select(Product.all, :id, :name, f.object.product_id), {include_blank: true}, {class: 'form-control'}
+    = f.label :stock_id, 'Product'
+    = f.select :stock_id, options_from_collection_for_select(Stock.all, :id, :name, f.object.stock_id), {include_blank: true}, {class: 'form-control'}
   .form-group
     = f.label :quantity
     = f.text_field :quantity, class: 'form-control'

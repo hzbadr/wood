@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @order.line_items.build if @order.line_items.empty?
   end
 
   # POST /orders
@@ -73,6 +74,6 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:number, :total, :state, :customer_id, 
-                                    :completed_at, :created_by_id, line_items_attributes: [:id, :product_id, :quantity, :_destroy])
+                                    :completed_at, :created_by_id, line_items_attributes: [:id, :stock_id, :quantity, :_destroy])
     end
 end
