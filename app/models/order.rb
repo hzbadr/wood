@@ -13,6 +13,8 @@ class Order < ActiveRecord::Base
   before_create :update_order_total
 
   after_create :update_customer_total_amount
+  
+  after_create :update_warehouse_stock
 
   accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:product_id] .nil?}
 
