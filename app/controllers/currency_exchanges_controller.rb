@@ -4,7 +4,8 @@ class CurrencyExchangesController < ApplicationController
   # GET /currency_exchanges
   # GET /currency_exchanges.json
   def index
-    @currency_exchanges = CurrencyExchange.all
+    @search = CurrencyExchange.search(params[:q])
+    @currency_exchanges = @search.result
   end
 
   # GET /currency_exchanges/1

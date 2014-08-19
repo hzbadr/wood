@@ -9,7 +9,7 @@
         = search_form_for(@search, class: 'form search') do |f|
           .sidebar-search
             .input-group.custom-search-form
-              = f.search_field :name_cont, class: 'form-control', placeholder: 'Serach...'
+              = f.search_field :safe_name_cont, class: 'form-control', placeholder: 'Serach...'
               %span.input-group-btn
                 %button.btn.btn-default{:type => "submit"}
                   %i.fa.fa-search

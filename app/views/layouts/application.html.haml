@@ -14,3 +14,9 @@
       #page-wrapper
         = render 'layouts/messages'
         = yield
+
+:javascript
+  $(document).ready(function(){
+    $(".#{params[:controller]}").addClass('alert-info').closest('.collapse').collapse('show');
+
+  });
