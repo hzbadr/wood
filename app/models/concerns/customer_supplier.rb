@@ -13,38 +13,38 @@ module CustomerSupplier
       QUERY_REMAINING_FIELD = ' SUM(orders.total - payments.amount) as remaining'
 
       scope :top_remaining, ->(){ 
-                                  select('id, first_name, last_name, SUM(total_amount - total_paid) as total_remaining')
+                                  unscoped.select('id, first_name, last_name, SUM(total_amount - total_paid) as total_remaining')
                                   .group('id')
                                   .order('total_remaining DESC')
                                 }
 
       scope :low_remaining, ->(){ 
-                                  select('id, first_name, last_name, SUM(total_amount - total_paid) as total_remaining')
+                                  unscoped.select('id, first_name, last_name, SUM(total_amount - total_paid) as total_remaining')
                                   .group('id')
                                   .order('total_remaining')
                                 }
 
       scope :top_payments,  ->(){ 
-                                select('id, first_name, last_name, SUM(total_paid) as total_payment')
+                                unscoped.select('id, first_name, last_name, SUM(total_paid) as total_payment')
                                 .group('id')
                                 .order('total_payment DESC')
                               }
 
       scope :low_payments,  ->(){ 
-                                select('id, first_name, last_name, SUM(total_paid) as total_payment')
+                                unscoped.select('id, first_name, last_name, SUM(total_paid) as total_payment')
                                 .group('id')
                                 .order('total_payment')
                               }
 
       scope :top_orders,  ->(){
-                                joins('LEFT OUTER JOIN orders ON orders.customer_id = users.id ') 
+                                unscoped.joins('LEFT OUTER JOIN orders ON orders.customer_id = users.id ') 
                                 .select('users.id, users.first_name, users.last_name, SUM(orders.total) as total_amount')
                                 .group('users.id')
                                 .order('total_amount DESC')
                               }
 
       scope :low_orders,  ->(){ 
-                                joins('LEFT OUTER JOIN orders ON orders.customer_id = users.id ') 
+                                unscoped.joins('LEFT OUTER JOIN orders ON orders.customer_id = users.id ') 
                                 .select('users.id, users.first_name, users.last_name, SUM(orders.total) as total_amount')
                                 .group('users.id')
                                 .order('total_amount')

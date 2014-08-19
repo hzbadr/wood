@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :authentication_keys => [:username]
 
   validates :username, uniqueness: {case_sensitive: false}
+  
+  default_scope ->(){ order('CONCAT(first_name, last_name)') }
 
   ransacker :full_name, formatter: proc { |v| v.mb_chars.downcase.to_s } do |parent|
     Arel::Nodes::NamedFunction.new('LOWER',
