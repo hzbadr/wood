@@ -46,7 +46,6 @@ class SavesController < ApplicationController
         format.html { redirect_to saves_path, notice: 'Safe was successfully updated.' }
         format.json { render :show, status: :ok, location: @safe }
       else
-        binding.pry
         format.html { render :edit }
         format.json { render json: @safe.errors, status: :unprocessable_entity }
       end

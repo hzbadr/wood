@@ -67,7 +67,6 @@ class Order < ActiveRecord::Base
     end
 
     def update_customer_total_amount
-      binding.pry
       self.customer.increase_total_amount(self.total)
     end
 
