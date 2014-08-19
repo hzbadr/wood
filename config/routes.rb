@@ -31,6 +31,10 @@ Rails.application.routes.draw do
     resources :line_items
   end
 
+  resources :refunds do
+    resources :line_items
+  end
+
   resources :stock_transfers
 
   devise_for :users

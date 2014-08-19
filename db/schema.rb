@@ -51,9 +51,10 @@ ActiveRecord::Schema.define(version: 20140817183510) do
 
   create_table "line_items", force: true do |t|
     t.integer  "product_id"
-    t.decimal  "quantity",   precision: 8, scale: 2
-    t.decimal  "price",      precision: 8, scale: 2
-    t.decimal  "cost_price", precision: 8, scale: 2
+    t.decimal  "quantity",      precision: 8, scale: 2
+    t.decimal  "price",         precision: 8, scale: 2
+    t.decimal  "cost_price",    precision: 8, scale: 2
+    t.decimal  "special_price", precision: 8, scale: 2
     t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140817183510) do
     t.string   "number"
     t.decimal  "total",         precision: 8, scale: 2
     t.string   "state"
+    t.string   "type",                                  default: "Order"
     t.integer  "customer_id"
     t.datetime "completed_at"
     t.integer  "created_by_id"

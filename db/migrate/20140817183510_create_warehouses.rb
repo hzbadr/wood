@@ -4,7 +4,7 @@ class CreateWarehouses < ActiveRecord::Migration
       t.string :name
       t.text :address
       t.string :phone
-      t.string :size
+      t.decimal :size, precision: 8, scale: 2
 
       t.timestamps
     end

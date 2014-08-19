@@ -1,0 +1,10 @@
+.col-xs-12
+  .panel.panel-primary
+    .panel-heading
+      %h4 Edit #{@refund.number}
+    .panel-body
+      = render 'form'
+
+= link_to 'Show', @refund
+\|
+= link_to 'Back', refunds_path

@@ -1,0 +1,29 @@
+%p
+  %b Number:
+  = @refund.number
+%p
+  %b Total:
+  = @refund.total
+%p
+  %b State:
+  = @refund.state
+%p
+  %b Customer:
+  = @refund.customer.full_name
+%p
+  %b Completed at:
+  = @refund.completed_at
+%p
+  %b Created by:
+  = @refund.created_by.full_name
+
+%h5 Line Items
+- @refund.line_items.each do |l|
+  %p
+    %b Product:
+    = l.product.name
+
+
+= link_to 'Edit', edit_refund_path(@refund)
+\|
+= link_to 'Back', refunds_path

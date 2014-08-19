@@ -10,11 +10,11 @@ class Order < ActiveRecord::Base
 
   before_validation :set_default_state, on: :create
 
-  before_save :update_order_total
+  before_create :update_order_total
+
+  after_create :update_customer_total_amount
 
   accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: ->(item){item[:product_id] .nil?}
-
-  after_save :create_transaction
 
   CREATED, PENDING, PROCESSING, COMPLETED, CANCELED = STATES = %w(created pending processing completed canceled)
 
@@ -60,13 +60,17 @@ class Order < ActiveRecord::Base
       self.state = CREATED
     end
 
-    # total is the remaining (amount - payments)
     def update_order_total
       binding.pry
       self.total = line_items.map(&:price).sum if self.total.nil? || self.total.zero?
     end
 
-    def create_transaction
-      # binding.pry
+    def update_customer_total_amount
+      self.customer.increase_total_amount(self.total)
     end
+
+    def update_warehouse_stock
+      self.line_items.map(&:decrease_stock_amount)
+    end
+
 end

@@ -1,0 +1,49 @@
+%h1 
+  Listing refunds
+  = link_to 'New Refund', new_refund_path, class: 'btn btn-outline btn-primary pull-right new-instance'
+
+.panel.panel-primary
+  .panel-heading
+    .row
+      .col-xs-12
+        = search_form_for(@search, class: 'form search') do |f|
+          .sidebar-search
+            .input-group.custom-search-form
+              .row
+                .col-xs-4
+                  .form-group
+                    = f.label :number_cont, 'Number'
+                    = f.search_field :number_cont, value: params[:q].fetch(:number_cont, nil), class: 'form-control', placeholder: 'Serach...'
+                .col-xs-3
+                  .form-group
+                    = f.label :customer_id_eq, 'Customer'
+                    = f.select :customer_id_eq, options_from_collection_for_select(Customer.all, :id, :full_name, params[:q].fetch(:customer_id_eq, nil)), {include_blank: true}, class: 'form-control'
+                .col-xs-2
+                  .form-group
+                    %button.btn.btn-default{type: "submit", style: "margin-top:19px"}
+                      %i.fa.fa-search
+                        Search
+
+  .panel-body
+    .row
+      .col-xs-12
+        %table.table.table-striped.table-bordered.table-hover
+          %tr
+            %th Number
+            %th Total
+            %th State
+            %th Customer
+            %th Created by
+            %th Completed at
+            %th.actions-column
+
+          - @refunds.each do |refund|
+            %tr
+              %td= refund.number
+              %td= refund.total
+              %td= refund.state
+              %td= refund.customer.full_name
+              %td= refund.created_by.full_name
+              %td= refund.completed_at
+              %td= render 'actions', refund: refund
+

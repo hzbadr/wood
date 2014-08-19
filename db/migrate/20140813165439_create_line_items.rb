@@ -5,6 +5,7 @@ class CreateLineItems < ActiveRecord::Migration
       t.decimal :quantity, precision: 8, scale: 2
       t.decimal :price, precision: 8, scale: 2
       t.decimal :cost_price, precision: 8, scale: 2
+      t.decimal :special_price, precision: 8, scale: 2
       t.references :order, index: true
 
       t.timestamps
