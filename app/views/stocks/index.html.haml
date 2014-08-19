@@ -19,6 +19,7 @@
       .col-xs-12
         %table.table.table-striped.table-bordered.table-hover.data-table
           %tr
+            %th Warehouse
             %th Product
             %th Quantity
             %th Date
@@ -26,6 +27,7 @@
 
           - @stocks.each do |stock|
             %tr
+              %td= stock.warehouse.name
               %td= stock.product.name
               %td= stock.quantity
               %td= stock.date

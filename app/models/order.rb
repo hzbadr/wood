@@ -61,7 +61,6 @@ class Order < ActiveRecord::Base
     end
 
     def update_order_total
-      binding.pry
       self.total = line_items.map(&:price).sum if self.total.nil? || self.total.zero?
     end
 

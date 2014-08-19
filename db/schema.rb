@@ -50,26 +50,28 @@ ActiveRecord::Schema.define(version: 20140817183510) do
   add_index "currency_exchanges", ["source_id"], name: "index_currency_exchanges_on_source_id", using: :btree
 
   create_table "line_items", force: true do |t|
-    t.integer  "product_id"
     t.decimal  "quantity",      precision: 8, scale: 2
     t.decimal  "price",         precision: 8, scale: 2
     t.decimal  "cost_price",    precision: 8, scale: 2
     t.decimal  "special_price", precision: 8, scale: 2
+    t.integer  "stock_id"
     t.integer  "order_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
+  add_index "line_items", ["stock_id"], name: "index_line_items_on_stock_id", using: :btree
 
   create_table "orders", force: true do |t|
     t.string   "number"
     t.decimal  "total",         precision: 8, scale: 2
     t.string   "state"
     t.string   "type",                                  default: "Order"
-    t.integer  "customer_id"
     t.datetime "completed_at"
+    t.integer  "customer_id"
     t.integer  "created_by_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -105,9 +107,9 @@ ActiveRecord::Schema.define(version: 20140817183510) do
     t.decimal  "width",       precision: 8, scale: 2
     t.decimal  "height",      precision: 8, scale: 2
     t.decimal  "depth",       precision: 8, scale: 2
-    t.integer  "category_id"
     t.decimal  "cost_price",  precision: 8, scale: 2
     t.decimal  "price",       precision: 8, scale: 2
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,13 +140,15 @@ ActiveRecord::Schema.define(version: 20140817183510) do
 
   create_table "stocks", force: true do |t|
     t.integer  "product_id"
-    t.decimal  "quantity",   precision: 8, scale: 2
+    t.integer  "warehouse_id"
+    t.decimal  "quantity",     precision: 8, scale: 2
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "stocks", ["product_id"], name: "index_stocks_on_product_id", using: :btree
+  add_index "stocks", ["warehouse_id"], name: "index_stocks_on_warehouse_id", using: :btree
 
   create_table "transactions", force: true do |t|
     t.decimal  "amount",           precision: 8, scale: 2
@@ -188,7 +192,7 @@ ActiveRecord::Schema.define(version: 20140817183510) do
     t.string   "name"
     t.text     "address"
     t.string   "phone"
-    t.string   "size"
+    t.decimal  "size",       precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

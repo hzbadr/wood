@@ -11,13 +11,4 @@ class Product < ActiveRecord::Base
   def name
     "#{category.name} - #{height}x#{width}x#{depth}"
   end
-
-  def increase_stock_amount(amount)
-    update(stock_amount: stock_amount + amount)
-  end
-
-  def decrease_stock_amount(amount)
-    update(stock_amount: stock_amount - amount)
-  end
-
 end

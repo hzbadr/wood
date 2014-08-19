@@ -6,8 +6,9 @@ class CreateLineItems < ActiveRecord::Migration
       t.decimal :cost_price, precision: 8, scale: 2
       t.decimal :special_price, precision: 8, scale: 2
 
-      t.references :product, index: true
+      t.references :stock, index: true
       t.references :order, index: true
+      t.references :product, index: true
 
       t.timestamps
     end
