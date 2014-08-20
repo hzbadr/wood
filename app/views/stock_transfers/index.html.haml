@@ -12,13 +12,9 @@
               .row
                 .col-xs-4
                   .form-group
-                    = f.label :supplier_id
-                    = f.select :source_id_eq, options_from_collection_for_select(Supplier.all, :id, :full_name), {}, class: 'form-control'
-                .col-xs-3
-                  .form-group
                     = f.label :date, 'Start Date'
                     = f.date_field :date_gteq, class: 'form-control'
-                .col-xs-3
+                .col-xs-4
                   .form-group
                     = f.label :date, 'End Date'
                     = f.date_field :date_lteq, class: 'form-control'
@@ -40,8 +36,8 @@
             %th.actions-column
 
           - @stock_transfers.each do |stock_transfer|
-            %tr
-              %td= stock_transfer.source.full_name
+            %tr{class: "#{stock_transfer.source.is_a?(Warehouse) ? 'alert-success' : 'alert-info'}"}
+              %td= stock_transfer.source.name
               %td= stock_transfer.product.name
               %td= stock_transfer.quantity
               %td= stock_transfer.date

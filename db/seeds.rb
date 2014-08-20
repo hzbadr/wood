@@ -21,7 +21,7 @@ categories = Category.all
   Warehouse.create(name: "Warehouse #{i}", size: "100")
 end
 
-warehouses = Warehouse.pluck(:id)
+warehouses = Warehouse.all
 
 categories.each do |p|
   (1..50).to_a.sample(10).each do |i|  
@@ -47,15 +47,16 @@ end
                   address: "Address #{last_name}", total_paid: 0 , total_amount: 0)
 end
 
-suppilers = Supplier.pluck(:id)
+suppilers = Supplier.all
 
 products = Product.pluck(:id)
 
 customers = Customer.pluck(:id)
 
 (1..300).to_a.each do |i|
-  StockTransfer.create(source_id: suppilers.sample, warehouse_id: warehouses.sample, product_id: products.sample,
-                       quantity: (1..1000).to_a.sample, date: DateTime.now.advance(days: -i/4))
+  StockTransfer.create(source: suppilers.sample, destination: warehouses.sample,
+                       product_id: products.sample, quantity: (1..1000).to_a.sample, 
+                       date: DateTime.now.advance(days: -i/4))
 end
 
 stocks = Stock.pluck(:id)

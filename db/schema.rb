@@ -126,8 +126,10 @@ ActiveRecord::Schema.define(version: 20140817183510) do
 
   create_table "stock_transfers", force: true do |t|
     t.integer  "source_id"
+    t.string   "source_type"
+    t.integer  "destination_id"
+    t.string   "destination_type"
     t.integer  "product_id"
-    t.integer  "warehouse_id"
     t.integer  "quantity"
     t.date     "date"
     t.datetime "created_at"
@@ -135,8 +137,6 @@ ActiveRecord::Schema.define(version: 20140817183510) do
   end
 
   add_index "stock_transfers", ["product_id"], name: "index_stock_transfers_on_product_id", using: :btree
-  add_index "stock_transfers", ["source_id"], name: "index_stock_transfers_on_source_id", using: :btree
-  add_index "stock_transfers", ["warehouse_id"], name: "index_stock_transfers_on_warehouse_id", using: :btree
 
   create_table "stocks", force: true do |t|
     t.integer  "product_id"

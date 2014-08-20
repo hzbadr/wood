@@ -1,19 +1,29 @@
 class StockTransfer < ActiveRecord::Base
-  belongs_to :source, class_name: 'Supplier'
+  belongs_to :source, polymorphic: true
+  belongs_to :destination, polymorphic: true
+
   belongs_to :product
-  belongs_to :warehouse
 
   after_create :update_stock
 
   private
     def update_stock
-      stock = Stock.find_or_initialize_by(product_id: product_id, warehouse_id: warehouse_id)
+      stock = if source_type == 'Warehouse'
+        Stock.find_or_initialize_by(product_id: product_id, warehouse_id: source_id)
+      else
+        Stock.find_or_initialize_by(product_id: product_id, warehouse_id: destination_id)  
+      end
+
       if stock.new_record?
         stock.quantity = quantity
         stock.date = date
         stock.save
       else
-        stock.update(quantity: stock.quantity + quantity)
+          if source_type == 'Warehouse'
+            stock.update(quantity: stock.quantity - quantity)
+          else
+            stock.update(quantity: stock.quantity + quantity)
+          end
       end
     end
 end

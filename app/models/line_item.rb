@@ -3,7 +3,6 @@ class LineItem < ActiveRecord::Base
   belongs_to :stock
   belongs_to :order, touch: true
 
-
   validates :special_price, numericality: { greater_than_or_equal_to: 0}, :allow_nil => true
   validate :stock_id_presence
 
@@ -13,11 +12,13 @@ class LineItem < ActiveRecord::Base
   after_validation :set_price_and_cost_price
 
   def increase_stock_amount
-    self.stock.increase_stock_amount(quantity)
+    StockTransfer.create(source: order.customer, destination: stock.warehouse, 
+                         product_id: product_id, quantity: quantity, date: DateTime.now)
   end
 
   def decrease_stock_amount
-    self.stock.decrease_stock_amount(quantity)
+    StockTransfer.create(source: stock.warehouse, destination: order.customer, 
+                         product_id: product_id, quantity: quantity, date: DateTime.now)
   end
 
   private

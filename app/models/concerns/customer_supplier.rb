@@ -5,6 +5,9 @@ module CustomerSupplier
     has_many :source_transactions, as: :source, class_name: 'Transaction', after_add: :update_source
     has_many :destination_transactions, as: :source, class_name: 'Transaction', after_add: :update_destination
 
+    has_many :source_stock_transfer, as: :source, class_name: 'StockTransfer'
+    has_many :destination_stock_transfer, as: :source, class_name: 'StockTransfer'
+
     before_validation :set_user_name, if: ->(u){ u.username.blank? }
 
       QUERY_SELECT_FIELDS = 'users.id, users.email, users.phone, users.first_name, users.last_name'

@@ -1,9 +1,9 @@
 class CreateStockTransfers < ActiveRecord::Migration
   def change
     create_table :stock_transfers do |t|
-      t.references :source, index: true
+      t.references :source, polymorphic: true
+      t.references :destination, polymorphic: true
       t.references :product, index: true
-      t.references :warehouse, index: true
       t.integer :quantity
       t.date :date
 
