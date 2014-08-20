@@ -49,49 +49,20 @@
         %i.fa.fa-tasks.fa-fw
         %i.fa.fa-caret-down
       %ul.dropdown-menu.dropdown-tasks
+        - @warehouses.each do |warehouse|
+          %li
+            %a{:href => "#"}
+              %div
+                %p
+                  %strong= warehouse.name
+                  %span.pull-right.text-muted= "#{number_to_percentage(warehouse.stock_size_percentage, precision: 2)} Filled"
+                .progress.progress-striped.active
+                  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "#{warehouse.stock_size_percentage}", :role => "progressbar", :style => "width: #{warehouse.stock_size_percentage}%", class: "#{ progress_bar_status(warehouse.stock_size_percentage) }"}
+                    %span.sr-only= "#{number_to_percentage(warehouse.stock_size_percentage, precision: 2)} Filled"
+          %li.divider
         %li
-          %a{:href => "#"}
-            %div
-              %p
-                %strong Task 1
-                %span.pull-right.text-muted 40% Complete
-              .progress.progress-striped.active
-                .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", :role => "progressbar", :style => "width: 40%"}
-                  %span.sr-only 40% Complete (success)
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %p
-                %strong Task 2
-                %span.pull-right.text-muted 20% Complete
-              .progress.progress-striped.active
-                .progress-bar.progress-bar-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "20", :role => "progressbar", :style => "width: 20%"}
-                  %span.sr-only 20% Complete
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %p
-                %strong Task 3
-                %span.pull-right.text-muted 60% Complete
-              .progress.progress-striped.active
-                .progress-bar.progress-bar-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", :style => "width: 60%"}
-                  %span.sr-only 60% Complete (warning)
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %p
-                %strong Task 4
-                %span.pull-right.text-muted 80% Complete
-              .progress.progress-striped.active
-                .progress-bar.progress-bar-danger{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "80", :role => "progressbar", :style => "width: 80%"}
-                  %span.sr-only 80% Complete (danger)
-        %li.divider
-        %li
-          %a.text-center{:href => "#"}
-            %strong See All Tasks
+          %a.text-center{:href => warehouses_path}
+            %strong See All Warehouses
             %i.fa.fa-angle-right
       / /.dropdown-tasks
     / /.dropdown
@@ -159,72 +130,7 @@
           %a{:href => "login.html"}
             %i.fa.fa-sign-out.fa-fw
             Logout
-      / /.dropdown-user
-    / /.dropdown
-  / /.navbar-top-links
-  .navbar-default.sidebar{:role => "navigation"}
-    .sidebar-nav.navbar-collapse
-      %ul#side-menu.nav
-        %li.sidebar-search
-          .input-group.custom-search-form
-            %input.form-control{:placeholder => "Search...", :type => "text"}
-              %span.input-group-btn
-                %button.btn.btn-default{:type => "button"}
-                  %i.fa.fa-search
-        %li
-          %a{:href => "#{root_path}"}
-            %i.fa.fa-dashboard.fa-fw
-            Dashboard
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-sitemap.fa-fw
-            Settings
-            %span.fa.arrow
-          %ul.nav.nav-second-level
-            %li
-              = link_to 'Categories', categories_path, class: 'categories'
-            %li
-              = link_to 'Customers', customers_path, class: 'customers'
-            %li
-              = link_to 'Suppliers', suppliers_path, class: 'suppliers'
-            %li
-              = link_to 'Payment Methods', payment_methods_path, class: 'payment_methods'
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-sitemap.fa-fw
-            Stocks
-            %span.fa.arrow
-          %ul.nav.nav-second-level
-            %li
-              = link_to 'Products', products_path, class: 'products'
-            %li
-              = link_to 'Stocks', stocks_path, class: 'stocks'
-            %li
-              = link_to 'Stock Transfers', stock_transfers_path, class: 'stock_transfers'
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-sitemap.fa-fw
-            Orders
-            %span.fa.arrow
-          %ul.nav.nav-second-level
-            %li
-              = link_to 'Orders', orders_path, class: 'orders'
-            %li
-              = link_to 'Refund', refunds_path, class: 'refunds'
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-sitemap.fa-fw
-            Financial
-            %span.fa.arrow
-          %ul.nav.nav-second-level
-            %li
-              = link_to 'Currency', currencies_path, class: 'currencies'
-            %li
-              = link_to 'Safe', saves_path, class: 'saves'
-            %li
-              = link_to 'Bank', banks_path, class: 'banks'
-            %li
-              = link_to 'Currency Exchange', currency_exchanges_path, class: 'currency_exchanges'
 
+  = render 'layouts/sidebar'
 
   = render 'layouts/navigation_links'

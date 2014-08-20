@@ -23,6 +23,7 @@
             %th Address
             %th Phone
             %th Size
+            %th Filled
             %th
 
           - @warehouses.each do |warehouse|
@@ -31,6 +32,7 @@
               %td= warehouse.address
               %td= warehouse.phone
               %td= warehouse.size
+              %td= number_to_percentage(warehouse.stock_size_percentage, precision: 2)
               %td= render 'actions', warehouse: warehouse
 
 

@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
   
   before_action :authenticate_user!
   
+  before_action :get_warehouses
+
+  def get_warehouses
+    @warehouses = Warehouse.all
+  end
 
   def set_params_q
     params[:q] ||= {}

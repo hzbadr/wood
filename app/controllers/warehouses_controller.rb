@@ -4,7 +4,8 @@ class WarehousesController < ApplicationController
   # GET /warehouses
   # GET /warehouses.json
   def index
-    @warehouses = Warehouse.all
+    @search = Warehouse.search(params[:q])
+    @warehouses = @search.result
   end
 
   # GET /warehouses/1

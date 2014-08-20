@@ -7,4 +7,16 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def progress_bar_status(val)
+    class_name = if val > Warehouse::DANGER_SIZE
+      'progress-bar-danger'
+    elsif val > Warehouse::WARNING_SIZE
+      'progress-bar-warning'
+    elsif val > Warehouse::SAFE_SIZE 
+      'progress-bar-info'
+    else
+      'progress-bar-success'
+    end 
+  end
 end
