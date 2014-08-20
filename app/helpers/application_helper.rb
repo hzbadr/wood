@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def latest_orders
-    Order.limit(3)
+    Order.latest.limit(3)
   end
 
   def progress_bar_status(val)

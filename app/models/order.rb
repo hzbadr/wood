@@ -30,6 +30,8 @@ class Order < ActiveRecord::Base
 
   end
 
+  scope :latest, -> (order('id DESC'))
+
   #order amount
   def amount
     line_items.inject(0.0) { |sum, li| sum + li.amount }
