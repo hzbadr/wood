@@ -1,0 +1,63 @@
+.navbar-default.sidebar{:role => "navigation"}
+  .sidebar-nav.navbar-collapse
+    %ul#side-menu.nav
+      %li.sidebar-search
+        .input-group.custom-search-form
+          %input.form-control{:placeholder => "Search...", :type => "text"}
+            %span.input-group-btn
+              %button.btn.btn-default{:type => "button"}
+                %i.fa.fa-search
+      %li
+        %a{:href => "#{root_path}"}
+          %i.fa.fa-dashboard.fa-fw
+          Dashboard
+      %li
+        %a{:href => "#"}
+          %i.fa.fa-sitemap.fa-fw
+          Settings
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li
+            = link_to 'Categories', categories_path, class: 'categories'
+          %li
+            = link_to 'Customers', customers_path, class: 'customers'
+          %li
+            = link_to 'Suppliers', suppliers_path, class: 'suppliers'
+          %li
+            = link_to 'Payment Methods', payment_methods_path, class: 'payment_methods'
+      %li
+        %a{:href => "#"}
+          %i.fa.fa-sitemap.fa-fw
+          Stocks
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li
+            = link_to 'Products', products_path, class: 'products'
+          %li
+            = link_to 'Stocks', stocks_path, class: 'stocks'
+          %li
+            = link_to 'Stock Transfers', stock_transfers_path, class: 'stock_transfers'
+      %li
+        %a{:href => "#"}
+          %i.fa.fa-sitemap.fa-fw
+          Orders
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li
+            = link_to 'Orders', orders_path, class: 'orders'
+          %li
+            = link_to 'Refund', refunds_path, class: 'refunds'
+      %li
+        %a{:href => "#"}
+          %i.fa.fa-sitemap.fa-fw
+          Financial
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li
+            = link_to 'Currency', currencies_path, class: 'currencies'
+          %li
+            = link_to 'Safe', saves_path, class: 'saves'
+          %li
+            = link_to 'Bank', banks_path, class: 'banks'
+          %li
+            = link_to 'Currency Exchange', currency_exchanges_path, class: 'currency_exchanges'

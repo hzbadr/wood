@@ -18,7 +18,7 @@ Category.create(name: 'Category 5')
 categories = Category.all
 
 (1..3).to_a.each do |i|
-  Warehouse.create(name: "Warehouse #{i}", size: (70000..90000).sample)
+  Warehouse.create(name: "Warehouse #{i}", size: (70000..90000).to_a.sample)
 end
 
 warehouses = Warehouse.all
