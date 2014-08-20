@@ -30,7 +30,7 @@ class Order < ActiveRecord::Base
 
   end
 
-  scope :latest, -> (order('id DESC'))
+  scope :latest, ->(){order('id DESC')}
 
   #order amount
   def amount
