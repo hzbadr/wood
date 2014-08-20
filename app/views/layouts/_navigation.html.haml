@@ -11,36 +11,26 @@
   %ul.nav.navbar-top-links.navbar-right
     %li.dropdown
       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-        %i.fa.fa-envelope.fa-fw
+        %i.fa.fa-shopping-cart.fa-lg
         %i.fa.fa-caret-down
       %ul.dropdown-menu.dropdown-messages
+        - latest_orders.each do |order|
+          %li
+            %a{:href => order_path(order)}
+              %div
+                %strong= order.customer.name
+                %span.pull-right.text-muted
+                  %em= time_ago_in_words(order.created_at)
+              %div
+                %b Number:
+                = order.number 
+                %br
+                %b Total: 
+                = order.total
+          %li.divider
         %li
-          %a{:href => "#"}
-            %div
-              %strong John Smith
-              %span.pull-right.text-muted
-                %em Yesterday
-            %div Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %strong John Smith
-              %span.pull-right.text-muted
-                %em Yesterday
-            %div Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %strong John Smith
-              %span.pull-right.text-muted
-                %em Yesterday
-            %div Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
-        %li.divider
-        %li
-          %a.text-center{:href => "#"}
-            %strong Read All Messages
+          %a.text-center{:href => orders_path}
+            %strong See All Orders
             %i.fa.fa-angle-right
       / /.dropdown-messages
     / /.dropdown
@@ -49,7 +39,7 @@
         %i.fa.fa-tasks.fa-fw
         %i.fa.fa-caret-down
       %ul.dropdown-menu.dropdown-tasks
-        - @warehouses.each do |warehouse|
+        - my_warehouses.each do |warehouse|
           %li
             %a{:href => "#"}
               %div
@@ -66,50 +56,50 @@
             %i.fa.fa-angle-right
       / /.dropdown-tasks
     / /.dropdown
-    %li.dropdown
-      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-        %i.fa.fa-bell.fa-fw
-        %i.fa.fa-caret-down
-      %ul.dropdown-menu.dropdown-alerts
-        %li
-          %a{:href => "#"}
-            %div
-              %i.fa.fa-comment.fa-fw
-              New Comment
-              %span.pull-right.text-muted.small 4 minutes ago
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %i.fa.fa-twitter.fa-fw
-              3 New Followers
-              %span.pull-right.text-muted.small 12 minutes ago
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %i.fa.fa-envelope.fa-fw
-              Message Sent
-              %span.pull-right.text-muted.small 4 minutes ago
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %i.fa.fa-tasks.fa-fw
-              New Task
-              %span.pull-right.text-muted.small 4 minutes ago
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %div
-              %i.fa.fa-upload.fa-fw
-              Server Rebooted
-              %span.pull-right.text-muted.small 4 minutes ago
-        %li.divider
-        %li
-          %a.text-center{:href => "#"}
-            %strong See All Alerts
-            %i.fa.fa-angle-right
+    -# %li.dropdown
+    -#   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    -#     %i.fa.fa-bell.fa-fw
+    -#     %i.fa.fa-caret-down
+    -#   %ul.dropdown-menu.dropdown-alerts
+    -#     %li
+    -#       %a{:href => "#"}
+    -#         %div
+    -#           %i.fa.fa-comment.fa-fw
+    -#           New Comment
+    -#           %span.pull-right.text-muted.small 4 minutes ago
+    -#     %li.divider
+    -#     %li
+    -#       %a{:href => "#"}
+    -#         %div
+    -#           %i.fa.fa-twitter.fa-fw
+    -#           3 New Followers
+    -#           %span.pull-right.text-muted.small 12 minutes ago
+    -#     %li.divider
+    -#     %li
+    -#       %a{:href => "#"}
+    -#         %div
+    -#           %i.fa.fa-envelope.fa-fw
+    -#           Message Sent
+    -#           %span.pull-right.text-muted.small 4 minutes ago
+    -#     %li.divider
+    -#     %li
+    -#       %a{:href => "#"}
+    -#         %div
+    -#           %i.fa.fa-tasks.fa-fw
+    -#           New Task
+    -#           %span.pull-right.text-muted.small 4 minutes ago
+    -#     %li.divider
+    -#     %li
+    -#       %a{:href => "#"}
+    -#         %div
+    -#           %i.fa.fa-upload.fa-fw
+    -#           Server Rebooted
+    -#           %span.pull-right.text-muted.small 4 minutes ago
+    -#     %li.divider
+    -#     %li
+    -#       %a.text-center{:href => "#"}
+    -#         %strong See All Alerts
+    -#         %i.fa.fa-angle-right
       / /.dropdown-alerts
     / /.dropdown
     %li.dropdown
@@ -122,14 +112,19 @@
             %i.fa.fa-user.fa-fw
             User Profile
         %li
-          %a{:href => "#"}
+          %a{:href => ""}
             %i.fa.fa-gear.fa-fw
             Settings
         %li.divider
         %li
-          %a{:href => "login.html"}
-            %i.fa.fa-sign-out.fa-fw
-            Logout
+          - if user_signed_in?
+            = link_to destroy_user_session_path, :method => :delete do
+              %i.fa.fa-sign-out.fa-fw
+              Logout
+          - else
+            = link_to new_user_session_path do
+              %i.fa.fa-sign-out.fa-fw
+              Login
 
   = render 'layouts/sidebar'
 

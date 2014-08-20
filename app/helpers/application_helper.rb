@@ -8,6 +8,15 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 
+
+  def my_warehouses
+    Warehouse.all
+  end
+
+  def latest_orders
+    Order.limit(3)
+  end
+
   def progress_bar_status(val)
     class_name = if val > Warehouse::DANGER_SIZE
       'progress-bar-danger'
